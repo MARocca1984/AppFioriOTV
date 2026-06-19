@@ -1,0 +1,119 @@
+<mvc:View
+    controllerName="vendorapp.controller.OneTimeVendorList"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:grid="sap.ui.layout.cssgrid"
+    displayBlock="true">
+
+    <Page
+        id="oneTimeVendorListPage"
+        title="One Time Vendor"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+        class="accSecondaryPage accFormPage">
+
+        <content>
+
+            <VBox class="accFormCard" width="100%">
+
+                <!-- Card header -->
+                <HBox class="accFormHeaderBar" justifyContent="SpaceBetween" alignItems="Center" wrap="Wrap" width="100%">
+                    <VBox>
+                        <Title text="One Time Vendor Records" level="H2" class="accFormTitle"/>
+                        <Text text="Manual payment requests captured for occasional vendors." class="accFormSubtitle"/>
+                    </VBox>
+                    <Button
+                        text="Create OTV"
+                        type="Emphasized"
+                        icon="sap-icon://add"
+                        press="onCreateOTV"/>
+                </HBox>
+
+                <!-- Filter bar -->
+                <OverflowToolbar class="accSectionToolbar">
+                    <Title text="Filters" level="H3" class="accFormSectionTitle accTableTitle"/>
+                    <ToolbarSpacer/>
+                    <Button text="Clear Filters" type="Transparent" icon="sap-icon://clear-filter" press="onClearFilters"/>
+                    <Button text="Apply Filters" type="Emphasized" icon="sap-icon://filter" press="onApplyFilters"/>
+                </OverflowToolbar>
+
+                <grid:CSSGrid
+                    gridTemplateColumns="repeat(auto-fit, minmax(220px, 1fr))"
+                    gridGap="0.25rem 1.5rem"
+                    class="accFormGrid">
+                    <VBox class="accField">
+                        <Label text="Company Code" class="accFieldLabel"/>
+                        <Input value="{flt>/companyCode}" placeholder="All" submit="onApplyFilters"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="SAP Vendor ID" class="accFieldLabel"/>
+                        <Input value="{flt>/sapVendor}" placeholder="All" submit="onApplyFilters"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Payee Name" class="accFieldLabel"/>
+                        <Input value="{flt>/payeeName}" placeholder="All" submit="onApplyFilters"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Payment Date" class="accFieldLabel"/>
+                        <DatePicker value="{flt>/paymentDate}" displayFormat="d-MMM-yyyy" valueFormat="yyyy-MM-dd" placeholder="All"/>
+                    </VBox>
+                </grid:CSSGrid>
+
+                <!-- Records table -->
+                <ScrollContainer
+                    horizontal="true"
+                    vertical="true"
+                    width="100%"
+                    class="accTableScroll accListScroll"
+                    focusable="false">
+
+                    <Table
+                        id="otvRecordsTable"
+                        items="{otv>/records}"
+                        width="78rem"
+                        class="accLineItemsTable"
+                        alternateRowColors="true"
+                        growing="false"
+                        noDataText="No records yet. Use “Create OTV” to add the first one.">
+
+                        <columns>
+                            <Column width="9rem"><Text text="Company Code"/></Column>
+                            <Column width="9rem"><Text text="SAP Vendor ID"/></Column>
+                            <Column width="20rem"><Text text="Payee Name"/></Column>
+                            <Column width="8rem"><Text text="Currency"/></Column>
+                            <Column width="11rem" hAlign="End"><Text text="Invoice Amount"/></Column>
+                            <Column width="9rem"><Text text="Payment Date"/></Column>
+                            <Column width="10rem"><Text text="FB60 Invoice"/></Column>
+                            <Column width="10rem"><Text text="F-53 Clearing"/></Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem vAlign="Middle" type="Navigation" press="onRecordPress">
+                                <cells>
+                                    <Text text="{otv>companyCode}"/>
+                                    <Text text="{otv>sapVendor}"/>
+                                    <Text text="{otv>payeeName}"/>
+                                    <Text text="{otv>paymentCurrency}"/>
+                                    <Text text="{otv>invoiceAmount}"/>
+                                    <Text text="{otv>paymentDate}"/>
+                                    <ObjectStatus
+                                        text="{= ${otv>fb60Invoice} ? ${otv>fb60Invoice} : 'Pending' }"
+                                        state="{= ${otv>fb60Invoice} ? 'Success' : 'Warning' }"/>
+                                    <ObjectStatus
+                                        text="{= ${otv>f53Clearing} ? ${otv>f53Clearing} : 'Pending' }"
+                                        state="{= ${otv>f53Clearing} ? 'Success' : 'Warning' }"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+
+                </ScrollContainer>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

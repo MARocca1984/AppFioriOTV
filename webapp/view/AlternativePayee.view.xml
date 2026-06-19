@@ -1,0 +1,31 @@
+<mvc:View
+    controllerName="vendorapp.controller.AlternativePayee"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+
+    <Page
+        id="alternativePayeePage"
+        title="Alternative Payee"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+        class="accSecondaryPage">
+
+        <content>
+            <VBox class="accModuleHeroSection" alignItems="Center" width="100%">
+                <core:Icon src="sap-icon://payment-approval" class="accModuleHeroIcon"/>
+                <Title text="Alternative Payee" class="accModuleHeroTitle" level="H1" textAlign="Center"/>
+                <Text text="IN DEVELOPMENT" class="accModuleDevBadge"/>
+            </VBox>
+            <VBox class="accModuleContent" alignItems="Center" width="100%">
+                <Text
+                    text="This module manages alternative payee assignments, allowing payments to be directed to a different party than the original vendor on record."
+                    class="accModuleContentText"
+                    textAlign="Center"/>
+            </VBox>
+        </content>
+
+    </Page>
+
+</mvc:View>

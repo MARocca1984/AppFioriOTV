@@ -1,0 +1,135 @@
+<mvc:View
+    controllerName="vendorapp.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+
+    <Page id="mainPage" showHeader="false" enableScrolling="true" class="accLandingPage">
+
+        <content>
+
+            <!-- ========== HERO SECTION ========== -->
+            <VBox class="accHero">
+
+                <!-- Topbar -->
+                <HBox alignItems="Center" justifyContent="SpaceBetween" class="accTopbar" width="100%">
+                    <HBox alignItems="Center">
+                        <core:Icon src="sap-icon://company-view" class="accTopbarIcon"/>
+                        <Title text="Welcome" class="accTopbarTitle" level="H5"/>
+                    </HBox>
+                    <Text text="Accenture" class="accTopbarBrand"/>
+                </HBox>
+
+                <!-- Hero copy -->
+                <VBox alignItems="Center" class="accHeroBody" width="100%">
+                    <Title text="Requisition To Pay Portal" class="accHeroTitle" level="H1" textAlign="Center"/>
+                    <Text text="Select a module to get started" class="accHeroSubtitle" textAlign="Center"/>
+                </VBox>
+
+            </VBox>
+
+            <!-- ========== TILES SECTION ========== -->
+            <VBox class="accTilesSection" alignItems="Center" width="100%">
+
+                <Text text="AVAILABLE MODULES" class="accSectionLabel" textAlign="Center"/>
+
+                <FlexBox wrap="NoWrap" justifyContent="Center" class="accTilesContainer">
+
+                    <!-- 1. Main Vendor -->
+                    <GenericTile
+                        id="tileMainVendor"
+                        class="accTile"
+                        header="Main Vendor"
+                        subheader="Primary vendor records"
+                        press="onNavigateMainVendor">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <ImageContent src="sap-icon://supplier"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+
+                    <!-- 2. Alternative Payee -->
+                    <GenericTile
+                        id="tileAlternativePayee"
+                        class="accTile"
+                        header="Alternative Payee"
+                        subheader="Payee assignments"
+                        press="onNavigateAlternativePayee">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <ImageContent src="sap-icon://payment-approval"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+
+                    <!-- 3. Ordering Address -->
+                    <GenericTile
+                        id="tileOrderingAddress"
+                        class="accTile"
+                        header="Ordering Address"
+                        subheader="Address management"
+                        press="onNavigateOrderingAddress">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <ImageContent src="sap-icon://addresses"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+
+                    <!-- 4. One Time Vendor -->
+                    <GenericTile
+                        id="tileOneTimeVendor"
+                        class="accTile"
+                        header="One Time Vendor"
+                        subheader="Temporary vendor setup"
+                        press="onNavigateOneTimeVendor">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <ImageContent src="sap-icon://customer-order-entry"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+
+                    <!-- 5. Low Value Payment -->
+                    <GenericTile
+                        id="tileLowValuePayment"
+                        class="accTile"
+                        header="Low Value Payment"
+                        subheader="Low-value payment processing"
+                        press="onNavigateLowValuePayment">
+                        <tileContent>
+                            <TileContent>
+                                <content>
+                                    <ImageContent src="sap-icon://currency"/>
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+
+                </FlexBox>
+
+            </VBox>
+
+        </content>
+
+        <footer>
+            <Toolbar class="accFooter">
+                <ToolbarSpacer/>
+                <Text text="© 2025 Accenture. All rights reserved." class="accFooterText"/>
+                <ToolbarSpacer/>
+            </Toolbar>
+        </footer>
+
+    </Page>
+
+</mvc:View>

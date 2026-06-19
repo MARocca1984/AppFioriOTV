@@ -1,0 +1,294 @@
+<mvc:View
+    controllerName="vendorapp.controller.OneTimeVendor"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:grid="sap.ui.layout.cssgrid"
+    xmlns:upload="sap.m.upload"
+    displayBlock="true">
+
+    <Page
+        id="oneTimeVendorPage"
+        title="One Time Vendor"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+        class="accSecondaryPage accFormPage">
+
+        <content>
+
+            <!-- ========== FORM CARD ========== -->
+            <VBox class="accFormCard" width="100%">
+
+                <!-- Card header: title + SAP TXN references -->
+                <HBox class="accFormHeaderBar" justifyContent="SpaceBetween" alignItems="Start" wrap="Wrap" width="100%">
+                    <VBox>
+                        <Title text="Invoice Request for Manual Payment" level="H2" class="accFormTitle"/>
+                        <Text text="Complete every field below to request a manual payment." class="accFormSubtitle"/>
+                    </VBox>
+                    <VBox class="accTxnBox" alignItems="End">
+                        <Text text="SAP TXN CODE — FB60 for Manual Invoice" class="accTxnRef"/>
+                        <Text text="SAP TXN CODE — F-53 for Manual Invoice Settlement" class="accTxnRef"/>
+                    </VBox>
+                </HBox>
+
+                <!-- ===== SECTION: ATTACHMENT (mandatory gate) ===== -->
+                <VBox class="accUploadBlock">
+                    <OverflowToolbar class="accSectionToolbar">
+                        <Title text="Supporting Document" level="H3" class="accFormSectionTitle accTableTitle"/>
+                        <ObjectStatus text="Mandatory" state="Error" class="accMandatoryTag"/>
+                        <ToolbarSpacer/>
+                        <ObjectStatus
+                            text="File attached"
+                            state="Success"
+                            icon="sap-icon://accept"
+                            visible="{vm>/fileUploaded}"/>
+                    </OverflowToolbar>
+                    <Text text="Upload the supporting document to continue. Drag and drop a file in the area below or use the Upload button to browse your computer." class="accUploadHint"/>
+                    <upload:UploadSet
+                        id="attachmentUploadSet"
+                        instantUpload="false"
+                        uploadEnabled="true"
+                        terminationEnabled="false"
+                        showIcons="true"
+                        fileTypes="pdf,png,jpg,jpeg,xlsx,xls,doc,docx,csv,msg,txt"
+                        noDataText="Drag and drop your file here"
+                        noDataDescription="or use the Upload button to browse your computer"
+                        afterItemAdded="onFileAdded"
+                        afterItemRemoved="onFileRemoved"
+                        class="accUploadSet"/>
+                </VBox>
+
+                <!-- ===== EVERYTHING BELOW IS REVEALED ONLY AFTER A FILE IS UPLOADED ===== -->
+                <VBox visible="{vm>/fileUploaded}" width="100%">
+
+                    <!-- ===== SECTION: PAYMENT DETAILS ===== -->
+                    <OverflowToolbar class="accSectionToolbar">
+                        <Title text="Payment Details" level="H3" class="accFormSectionTitle accTableTitle"/>
+                        <ToolbarSpacer/>
+                        <Button text="Reset Fields" type="Transparent" icon="sap-icon://eraser" press="onResetFields" tooltip="Clear all fields in this section"/>
+                    </OverflowToolbar>
+
+                    <grid:CSSGrid
+                        gridTemplateColumns="repeat(auto-fit, minmax(330px, 1fr))"
+                        gridGap="0.25rem 1.5rem"
+                        class="accFormGrid">
+
+                        <VBox class="accField">
+                            <Label text="Company Code" required="true" class="accFieldLabel"/>
+                            <Input value="{vm>/form/companyCode}" placeholder="e.g. 1900" maxLength="4"/>
+                        </VBox>
+                        <VBox class="accField">
+                            <Label text="Payment Date" required="true" class="accFieldLabel"/>
+                            <DatePicker value="{vm>/form/paymentDate}" displayFormat="d-MMM-yyyy" valueFormat="yyyy-MM-dd" placeholder="Select a date"/>
+                        </VBox>
+                        <VBox class="accField">
+                            <HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center">
+                                <Label text="Document Date" required="true" class="accFieldLabel"/>
+                                <Text text="SAP format (dd.MM.yyyy)" class="accFieldHint"/>
+                            </HBox>
+                            <DatePicker value="{vm>/form/documentDate}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" placeholder="Select a date"/>
+                        </VBox>
+                        <VBox class="accField">
+                            <Label text="Received Date" required="true" class="accFieldLabel"/>
+                            <DatePicker value="{vm>/form/receivedDate}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" placeholder="Select a date"/>
+                        </VBox>
+                        <VBox class="accField">
+                            <HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center">
+                                <Label text="Baseline Date" required="true" class="accFieldLabel"/>
+                                <Text text="SAP format (dd.MM.yyyy)" class="accFieldHint"/>
+                            </HBox>
+                            <DatePicker value="{vm>/form/baselineDate}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" placeholder="Select a date"/>
+                        </VBox>
+                        <VBox class="accField">
+                            <Label text="Reference" required="true" class="accFieldLabel"/>
+                            <ComboBox selectedKey="{vm>/form/exceptionReason}" placeholder="Select a reason" width="100%">
+                                <core:Item key="Statutory/Tax" text="Statutory/Tax"/>
+                                <core:Item key="Rush AP - No Vendor" text="Rush AP - No Vendor"/>
+                                <core:Item key="Rush AP - One Time" text="Rush AP - One Time"/>
+                                <core:Item key="Urgent Payment" text="Urgent Payment"/>
+                                <core:Item key="Legal / Statutory" text="Legal / Statutory"/>
+                            </ComboBox>
+                        </VBox>
+                        <VBox class="accField">
+                            <HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center">
+                                <Label text="Payment Method" required="true" class="accFieldLabel"/>
+                                <Text text="Choose EFT (M) or Check (Q)" class="accFieldHint"/>
+                            </HBox>
+                            <Select selectedKey="{vm>/form/paymentMethod}" width="100%">
+                                <core:Item key="M" text="M — EFT"/>
+                                <core:Item key="Q" text="Q — Check"/>
+                            </Select>
+                        </VBox>
+                        <VBox class="accField">
+                            <HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center">
+                                <Label text="Payee Name" required="true" class="accFieldLabel"/>
+                                <HBox alignItems="Center" class="accFieldMetaRight">
+                                    <Text text="Max 35 characters" class="accFieldHint"/>
+                                    <Text text="{= (${vm>/form/payeeName} || '').length } / 35" class="accCharCounter"/>
+                                </HBox>
+                            </HBox>
+                            <Input value="{vm>/form/payeeName}" maxLength="35" placeholder="e.g. UNIVERSIDAD NACIONAL AUTONOMA DE MEXICO"/>
+                        </VBox>
+                        <VBox class="accField">
+                            <HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center">
+                                <Label text="Payee City" required="true" class="accFieldLabel"/>
+                                <Text text="{= (${vm>/form/payeeCity} || '').length } / 35" class="accCharCounter"/>
+                            </HBox>
+                            <Input value="{vm>/form/payeeCity}" maxLength="35" placeholder="e.g. México"/>
+                        </VBox>
+                        <VBox class="accField">
+                            <HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center">
+                                <Label text="SAP Vendor ID" class="accFieldLabel"/>
+                                <Text text="Do not change" class="accFieldHint"/>
+                            </HBox>
+                            <Input value="{vm>/form/sapVendor}" placeholder="e.g. 4190000"/>
+                        </VBox>
+                        <VBox class="accField">
+                            <Label text="Payment Currency" required="true" class="accFieldLabel"/>
+                            <Select selectedKey="{vm>/form/paymentCurrency}" width="100%">
+                                <core:Item key="MXN" text="MXN"/>
+                                <core:Item key="COP" text="COP"/>
+                                <core:Item key="USD" text="USD"/>
+                                <core:Item key="EUR" text="EUR"/>
+                            </Select>
+                        </VBox>
+                        <VBox class="accField">
+                            <Label text="Invoice Amount" required="true" class="accFieldLabel"/>
+                            <Input value="{vm>/form/invoiceAmount}" type="Number" textAlign="End" placeholder="0.00"/>
+                        </VBox>
+                        <VBox class="accField">
+                            <Label text="Tax Amount" class="accFieldLabel"/>
+                            <Input value="{vm>/form/taxAmount}" type="Number" textAlign="End" placeholder="0.00"/>
+                        </VBox>
+                        <VBox class="accField">
+                            <HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center">
+                                <Label text="Doc Type" class="accFieldLabel"/>
+                                <Text text="Auto-derived" class="accFieldHint"/>
+                            </HBox>
+                            <Input value="{vm>/form/docType}" editable="false" placeholder="Auto"/>
+                        </VBox>
+                        <VBox class="accField">
+                            <Label text="Cash Clearing GL" required="true" class="accFieldLabel"/>
+                            <Input value="{vm>/form/cashClearingGL}" placeholder="e.g. 540000"/>
+                        </VBox>
+                        <VBox class="accField">
+                            <HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center">
+                                <Label text="Value Date" required="true" class="accFieldLabel"/>
+                                <Text text="SAP format (dd.MM.yyyy)" class="accFieldHint"/>
+                            </HBox>
+                            <DatePicker value="{vm>/form/valueDate}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" placeholder="Select a date"/>
+                        </VBox>
+                        <VBox class="accField accFieldWide">
+                            <HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center">
+                                <Label text="Invoice Information" required="true" class="accFieldLabel"/>
+                                <HBox alignItems="Center" class="accFieldMetaRight">
+                                    <Text text="Document Header Text" class="accFieldHint"/>
+                                    <Text text="{= (${vm>/form/invoiceInformation} || '').length } / 50" class="accCharCounter"/>
+                                </HBox>
+                            </HBox>
+                            <Input value="{vm>/form/invoiceInformation}" maxLength="50" placeholder="e.g. Pago anticipo Diplomado ..."/>
+                        </VBox>
+                        <VBox class="accField accFieldWide">
+                            <HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center">
+                                <Label text="Clearing Text" required="true" class="accFieldLabel"/>
+                                <Text text="{= (${vm>/form/clearingText} || '').length } / 50" class="accCharCounter"/>
+                            </HBox>
+                            <Input value="{vm>/form/clearingText}" maxLength="50" placeholder="e.g. Pago anticipo Diplomado ..."/>
+                        </VBox>
+
+                    </grid:CSSGrid>
+
+                    <!-- ===== SECTION: LINE ITEMS ===== -->
+                    <OverflowToolbar class="accSectionToolbar">
+                        <Title text="Line Items" level="H3" class="accFormSectionTitle accTableTitle"/>
+                        <ToolbarSpacer/>
+                        <Button text="Add Line Item" type="Transparent" icon="sap-icon://add" press="onAddItem"/>
+                        <Button text="Reset Table" type="Transparent" icon="sap-icon://eraser" press="onResetTable" tooltip="Clear all line items"/>
+                    </OverflowToolbar>
+
+                    <!-- Dynamic vertical + horizontal scroll -->
+                    <ScrollContainer
+                        horizontal="true"
+                        vertical="true"
+                        width="100%"
+                        class="accTableScroll"
+                        focusable="false">
+
+                        <Table
+                            id="lineItemsTable"
+                            items="{vm>/items}"
+                            width="96rem"
+                            class="accLineItemsTable"
+                            alternateRowColors="true"
+                            growing="false">
+
+                            <columns>
+                                <Column width="9rem"><Text text="Posting Key"/></Column>
+                                <Column width="8rem" hAlign="End"><Text text="GL Account"/></Column>
+                                <Column width="9rem" hAlign="End">
+                                    <Text text="Net Amount (Debit)"/>
+                                    <footer><Text text="{vm>/totalDebit}" class="accTotalValue"/></footer>
+                                </Column>
+                                <Column width="9rem" hAlign="End">
+                                    <Text text="Net Amount (Credit)"/>
+                                    <footer><Text text="{vm>/totalCredit}" class="accTotalValue"/></footer>
+                                </Column>
+                                <Column width="7rem"><Text text="Tax Code"/></Column>
+                                <Column width="7rem"><Text text="Cost Ctr"/></Column>
+                                <Column width="8rem"><Text text="WBS Element"/></Column>
+                                <Column width="7rem"><Text text="Profit Ctr"/></Column>
+                                <Column width="7rem"><Text text="Company Code"/></Column>
+                                <Column width="16rem"><Text text="Text"/></Column>
+                                <Column width="6rem" hAlign="Center"><Text text="Actions"/></Column>
+                            </columns>
+
+                            <items>
+                                <ColumnListItem vAlign="Middle">
+                                    <cells>
+                                        <Select selectedKey="{vm>postingKey}" width="100%">
+                                            <core:Item key="40 - Debit" text="40 - Debit"/>
+                                            <core:Item key="50 - Credit" text="50 - Credit"/>
+                                        </Select>
+                                        <Input value="{vm>glAccount}" textAlign="End" placeholder="GL acct"/>
+                                        <Input value="{vm>debit}" type="Number" textAlign="End" placeholder="0" change="onRecalc"/>
+                                        <Input value="{vm>credit}" type="Number" textAlign="End" placeholder="0" change="onRecalc"/>
+                                        <Input value="{vm>taxCode}" placeholder="—"/>
+                                        <Input value="{vm>costCtr}" placeholder="—"/>
+                                        <Input value="{vm>wbsElement}" placeholder="—"/>
+                                        <Input value="{vm>profitCtr}" placeholder="—"/>
+                                        <Input value="{vm>companyCode}" placeholder="—"/>
+                                        <Input value="{vm>text}" placeholder="Line text"/>
+                                        <HBox justifyContent="Center">
+                                            <Button icon="sap-icon://copy" type="Transparent" tooltip="Copy line" press="onCopyItem"/>
+                                            <Button icon="sap-icon://delete" type="Transparent" tooltip="Remove line" press="onDeleteItem"/>
+                                        </HBox>
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+
+                    </ScrollContainer>
+
+                    <!-- ===== SECTION: PREPARED BY ===== -->
+                    <HBox class="accPreparedBy" alignItems="Center" wrap="Wrap">
+                        <Label text="Prepared by" class="accFieldLabel accPreparedLabel"/>
+                        <Input value="{vm>/form/preparedBy}" placeholder="Name of preparer" class="accPreparedInput"/>
+                    </HBox>
+
+                </VBox>
+
+            </VBox>
+
+        </content>
+
+        <footer>
+            <OverflowToolbar class="accFormFooter" visible="{vm>/fileUploaded}">
+                <ToolbarSpacer/>
+                <Button text="Submit Request" type="Emphasized" icon="sap-icon://accept" press="onSubmit"/>
+            </OverflowToolbar>
+        </footer>
+
+    </Page>
+
+</mvc:View>

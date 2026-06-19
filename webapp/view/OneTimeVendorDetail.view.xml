@@ -1,0 +1,253 @@
+<mvc:View
+    controllerName="vendorapp.controller.OneTimeVendorDetail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:grid="sap.ui.layout.cssgrid"
+    displayBlock="true">
+
+    <Page
+        id="oneTimeVendorDetailPage"
+        title="One Time Vendor"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+        class="accSecondaryPage accFormPage">
+
+        <content>
+
+            <VBox class="accFormCard" width="100%">
+
+                <!-- Card header + action buttons -->
+                <HBox class="accFormHeaderBar" justifyContent="SpaceBetween" alignItems="Center" wrap="Wrap" width="100%">
+                    <VBox>
+                        <Title text="{detail>/data/payeeName}" level="H2" class="accFormTitle"/>
+                        <Text text="{= ${detail>/editMode} ? 'Editing record — adjust the fields and save your changes.' : 'Record details (read-only). Press Modify to edit.' }" class="accFormSubtitle"/>
+                    </VBox>
+                    <HBox class="accDetailActions" alignItems="Center" wrap="Wrap">
+                        <Button
+                            text="Create FB60 Invoice"
+                            type="Emphasized"
+                            icon="sap-icon://create-form"
+                            press="onCreateFB60"
+                            visible="{= !${detail>/editMode} &amp;&amp; !${detail>/data/fb60Invoice} &amp;&amp; !${detail>/data/f53Clearing} }"/>
+                        <Button
+                            text="Create F-53 Clearing"
+                            type="Emphasized"
+                            icon="sap-icon://create-form"
+                            press="onCreateF53"
+                            visible="{= !${detail>/editMode} &amp;&amp; !!${detail>/data/fb60Invoice} &amp;&amp; !${detail>/data/f53Clearing} }"/>
+                        <Button
+                            text="Modify"
+                            type="Transparent"
+                            icon="sap-icon://edit"
+                            press="onModify"
+                            visible="{= !${detail>/editMode} &amp;&amp; !${detail>/data/fb60Invoice} &amp;&amp; !${detail>/data/f53Clearing} }"/>
+                        <Button
+                            text="Save"
+                            type="Emphasized"
+                            icon="sap-icon://save"
+                            press="onSave"
+                            enabled="{detail>/dirty}"
+                            visible="{detail>/editMode}"/>
+                        <Button
+                            text="Cancel"
+                            type="Transparent"
+                            icon="sap-icon://decline"
+                            press="onCancel"
+                            visible="{detail>/editMode}"/>
+                    </HBox>
+                </HBox>
+
+                <!-- ===== PAYMENT DETAILS ===== -->
+                <Title text="Payment Details" level="H3" class="accFormSectionTitle accTableTitle"/>
+
+                <grid:CSSGrid
+                    gridTemplateColumns="repeat(auto-fit, minmax(330px, 1fr))"
+                    gridGap="0.25rem 1.5rem"
+                    class="accFormGrid">
+
+                    <VBox class="accField">
+                        <Label text="Company Code" class="accFieldLabel"/>
+                        <Input value="{detail>/data/companyCode}" editable="{detail>/editMode}" maxLength="4" liveChange="onFieldChange"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Payment Date" class="accFieldLabel"/>
+                        <DatePicker value="{detail>/data/paymentDate}" editable="{detail>/editMode}" displayFormat="d-MMM-yyyy" valueFormat="yyyy-MM-dd" change="onFieldChange"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Document Date" class="accFieldLabel"/>
+                        <DatePicker value="{detail>/data/documentDate}" editable="{detail>/editMode}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" change="onFieldChange"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Received Date" class="accFieldLabel"/>
+                        <DatePicker value="{detail>/data/receivedDate}" editable="{detail>/editMode}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" change="onFieldChange"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Baseline Date" class="accFieldLabel"/>
+                        <DatePicker value="{detail>/data/baselineDate}" editable="{detail>/editMode}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" change="onFieldChange"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Reference" class="accFieldLabel"/>
+                        <ComboBox selectedKey="{detail>/data/exceptionReason}" editable="{detail>/editMode}" width="100%" change="onFieldChange">
+                            <core:Item key="Statutory/Tax" text="Statutory/Tax"/>
+                            <core:Item key="Rush AP - No Vendor" text="Rush AP - No Vendor"/>
+                            <core:Item key="Rush AP - One Time" text="Rush AP - One Time"/>
+                            <core:Item key="Urgent Payment" text="Urgent Payment"/>
+                            <core:Item key="Legal / Statutory" text="Legal / Statutory"/>
+                        </ComboBox>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Payment Method" class="accFieldLabel"/>
+                        <Select selectedKey="{detail>/data/paymentMethod}" enabled="{detail>/editMode}" width="100%" change="onFieldChange">
+                            <core:Item key="M" text="M — EFT"/>
+                            <core:Item key="Q" text="Q — Check"/>
+                        </Select>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Payee Name" class="accFieldLabel"/>
+                        <Input value="{detail>/data/payeeName}" editable="{detail>/editMode}" maxLength="35" liveChange="onFieldChange"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Payee City" class="accFieldLabel"/>
+                        <Input value="{detail>/data/payeeCity}" editable="{detail>/editMode}" maxLength="35" liveChange="onFieldChange"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="SAP Vendor ID" class="accFieldLabel"/>
+                        <Input value="{detail>/data/sapVendor}" editable="{detail>/editMode}" liveChange="onFieldChange"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Payment Currency" class="accFieldLabel"/>
+                        <Select selectedKey="{detail>/data/paymentCurrency}" enabled="{detail>/editMode}" width="100%" change="onFieldChange">
+                            <core:Item key="MXN" text="MXN"/>
+                            <core:Item key="COP" text="COP"/>
+                            <core:Item key="USD" text="USD"/>
+                            <core:Item key="EUR" text="EUR"/>
+                        </Select>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Invoice Amount" class="accFieldLabel"/>
+                        <Input value="{detail>/data/invoiceAmount}" editable="{detail>/editMode}" textAlign="End" liveChange="onFieldChange"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Tax Amount" class="accFieldLabel"/>
+                        <Input value="{detail>/data/taxAmount}" editable="{detail>/editMode}" textAlign="End" liveChange="onFieldChange"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Doc Type" class="accFieldLabel"/>
+                        <Input value="{detail>/data/docType}" editable="{detail>/editMode}" liveChange="onFieldChange"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Cash Clearing GL" class="accFieldLabel"/>
+                        <Input value="{detail>/data/cashClearingGL}" editable="{detail>/editMode}" liveChange="onFieldChange"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Value Date" class="accFieldLabel"/>
+                        <DatePicker value="{detail>/data/valueDate}" editable="{detail>/editMode}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" change="onFieldChange"/>
+                    </VBox>
+                    <VBox class="accField accFieldWide">
+                        <Label text="Invoice Information" class="accFieldLabel"/>
+                        <Input value="{detail>/data/invoiceInformation}" editable="{detail>/editMode}" maxLength="50" liveChange="onFieldChange"/>
+                    </VBox>
+                    <VBox class="accField accFieldWide">
+                        <Label text="Clearing Text" class="accFieldLabel"/>
+                        <Input value="{detail>/data/clearingText}" editable="{detail>/editMode}" maxLength="50" liveChange="onFieldChange"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="Prepared by" class="accFieldLabel"/>
+                        <Input value="{detail>/data/preparedBy}" editable="{detail>/editMode}" liveChange="onFieldChange"/>
+                    </VBox>
+                </grid:CSSGrid>
+
+                <!-- ===== DOCUMENT STATUS (FB60 / F-53) — always read-only ===== -->
+                <Title text="Document Status" level="H3" class="accFormSectionTitle accTableTitle"/>
+                <grid:CSSGrid
+                    gridTemplateColumns="repeat(auto-fit, minmax(330px, 1fr))"
+                    gridGap="0.25rem 1.5rem"
+                    class="accFormGrid">
+                    <VBox class="accField">
+                        <Label text="FB60 Invoice" class="accFieldLabel"/>
+                        <ObjectStatus
+                            text="{= ${detail>/data/fb60Invoice} ? ${detail>/data/fb60Invoice} : 'Pending' }"
+                            state="{= ${detail>/data/fb60Invoice} ? 'Success' : 'Warning' }"
+                            icon="{= ${detail>/data/fb60Invoice} ? 'sap-icon://accept' : 'sap-icon://pending' }"
+                            class="accStatusBig"/>
+                    </VBox>
+                    <VBox class="accField">
+                        <Label text="F-53 Clearing" class="accFieldLabel"/>
+                        <ObjectStatus
+                            text="{= ${detail>/data/f53Clearing} ? ${detail>/data/f53Clearing} : 'Pending' }"
+                            state="{= ${detail>/data/f53Clearing} ? 'Success' : 'Warning' }"
+                            icon="{= ${detail>/data/f53Clearing} ? 'sap-icon://accept' : 'sap-icon://pending' }"
+                            class="accStatusBig"/>
+                    </VBox>
+                </grid:CSSGrid>
+
+                <!-- ===== LINE ITEMS ===== -->
+                <OverflowToolbar class="accSectionToolbar">
+                    <Title text="Line Items" level="H3" class="accFormSectionTitle accTableTitle"/>
+                    <ToolbarSpacer/>
+                    <Button text="Add Line Item" type="Transparent" icon="sap-icon://add" press="onAddItem" visible="{detail>/editMode}"/>
+                </OverflowToolbar>
+
+                <ScrollContainer horizontal="true" vertical="true" width="100%" class="accTableScroll" focusable="false">
+                    <Table
+                        id="detailItemsTable"
+                        items="{detail>/data/items}"
+                        width="96rem"
+                        class="accLineItemsTable"
+                        alternateRowColors="true"
+                        growing="false">
+
+                        <columns>
+                            <Column width="9rem"><Text text="Posting Key"/></Column>
+                            <Column width="8rem" hAlign="End"><Text text="GL Account"/></Column>
+                            <Column width="9rem" hAlign="End">
+                                <Text text="Net Amount (Debit)"/>
+                                <footer><Text text="{detail>/totalDebit}" class="accTotalValue"/></footer>
+                            </Column>
+                            <Column width="9rem" hAlign="End">
+                                <Text text="Net Amount (Credit)"/>
+                                <footer><Text text="{detail>/totalCredit}" class="accTotalValue"/></footer>
+                            </Column>
+                            <Column width="7rem"><Text text="Tax Code"/></Column>
+                            <Column width="7rem"><Text text="Cost Ctr"/></Column>
+                            <Column width="8rem"><Text text="WBS Element"/></Column>
+                            <Column width="7rem"><Text text="Profit Ctr"/></Column>
+                            <Column width="7rem"><Text text="Company Code"/></Column>
+                            <Column width="16rem"><Text text="Text"/></Column>
+                            <Column width="6rem" hAlign="Center"><Text text="Actions"/></Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem vAlign="Middle">
+                                <cells>
+                                    <Select selectedKey="{detail>postingKey}" enabled="{detail>/editMode}" width="100%" change="onFieldChange">
+                                        <core:Item key="40 - Debit" text="40 - Debit"/>
+                                        <core:Item key="50 - Credit" text="50 - Credit"/>
+                                    </Select>
+                                    <Input value="{detail>glAccount}" editable="{detail>/editMode}" textAlign="End" liveChange="onFieldChange"/>
+                                    <Input value="{detail>debit}" editable="{detail>/editMode}" type="Number" textAlign="End" change="onItemAmountChange"/>
+                                    <Input value="{detail>credit}" editable="{detail>/editMode}" type="Number" textAlign="End" change="onItemAmountChange"/>
+                                    <Input value="{detail>taxCode}" editable="{detail>/editMode}" liveChange="onFieldChange"/>
+                                    <Input value="{detail>costCtr}" editable="{detail>/editMode}" liveChange="onFieldChange"/>
+                                    <Input value="{detail>wbsElement}" editable="{detail>/editMode}" liveChange="onFieldChange"/>
+                                    <Input value="{detail>profitCtr}" editable="{detail>/editMode}" liveChange="onFieldChange"/>
+                                    <Input value="{detail>companyCode}" editable="{detail>/editMode}" liveChange="onFieldChange"/>
+                                    <Input value="{detail>text}" editable="{detail>/editMode}" liveChange="onFieldChange"/>
+                                    <HBox justifyContent="Center">
+                                        <Button icon="sap-icon://copy" type="Transparent" tooltip="Copy line" press="onCopyItem" visible="{detail>/editMode}"/>
+                                        <Button icon="sap-icon://delete" type="Transparent" tooltip="Remove line" press="onDeleteItem" visible="{detail>/editMode}"/>
+                                    </HBox>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </ScrollContainer>
+
+            </VBox>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

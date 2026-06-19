@@ -1,0 +1,9 @@
+<mvc:View
+    controllerName="vendorapp.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <App id="appContainer" class="sapUiSizeCozy"/>
+
+</mvc:View>

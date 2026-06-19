@@ -1,0 +1,479 @@
+/* ================================================================
+   VENDOR MANAGEMENT | ACCENTURE DESIGN SYSTEM
+   ================================================================ */
+
+:root {
+  --acc-purple:        #A100FF;
+  --acc-purple-dark:   #7500C0;
+  --acc-purple-xdark:  #3D0066;
+  --acc-purple-light:  #C966FF;
+  --acc-purple-xlight: #F2E5FF;
+  --acc-purple-bg:     #F7F3FF;
+  --acc-black:         #000000;
+  --acc-dark:          #1A1A1A;
+  --acc-gray-dark:     #3D3D3D;
+  --acc-gray-mid:      #808080;
+  --acc-gray-light:    #BFBFBF;
+  --acc-white:         #FFFFFF;
+  --acc-gradient:      linear-gradient(135deg, #A100FF 0%, #3D0066 100%);
+}
+
+/* ---- LANDING PAGE SHELL ---- */
+.accLandingPage .sapMPageSect {
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+.accLandingPage.sapMPage {
+  background: var(--acc-purple-bg) !important;
+}
+
+/* ---- HERO ---- */
+.accHero {
+  background: var(--acc-gradient);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.accTopbar {
+  padding: 18px 44px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-sizing: border-box;
+}
+.accTopbarIcon.sapUiIcon {
+  color: #FFFFFF !important;
+  font-size: 1.5rem !important;
+  margin-right: 10px;
+}
+.accTopbarTitle .sapMTitleCss {
+  color: #FFFFFF !important;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px;
+}
+.accTopbarBrand.sapMText {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 0.8rem !important;
+  font-style: italic;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.accHeroBody {
+  padding: 52px 48px 68px;
+  text-align: center;
+}
+.accHeroTitle .sapMTitleCss {
+  color: #FFFFFF !important;
+  font-size: 2.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+.accHeroSubtitle.sapMText {
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-size: 1.05rem !important;
+  font-weight: 300 !important;
+  margin-top: 14px;
+}
+
+/* ---- TILES SECTION (lift card over hero) ---- */
+.accTilesSection {
+  background: var(--acc-purple-bg);
+  border-radius: 24px 24px 0 0;
+  margin-top: -24px;
+  padding: 40px 40px 64px;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  min-height: 300px;
+}
+
+.accSectionLabel.sapMText {
+  color: var(--acc-gray-mid) !important;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.accTilesContainer {
+  max-width: 1120px;
+  width: 100%;
+  padding: 20px 0 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+/* ---- GENERIC TILE — MODULE CARD ---- */
+.accTile.sapMGT {
+  width: 188px !important;
+  height: 188px !important;
+  border: none !important;
+  border-top: 3px solid var(--acc-purple) !important;
+  border-radius: 0 0 10px 10px !important;
+  background: var(--acc-white) !important;
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.07) !important;
+  transition: box-shadow 0.22s ease, transform 0.22s ease !important;
+  margin: 12px !important;
+  cursor: pointer;
+}
+.accTile.sapMGT:hover {
+  box-shadow: 0 14px 44px rgba(161, 0, 255, 0.22) !important;
+  transform: translateY(-5px);
+}
+.accTile.sapMGT:focus {
+  outline: 2px solid var(--acc-purple) !important;
+  outline-offset: 2px;
+}
+
+.accTile .sapMGTHdrTxt {
+  color: var(--acc-dark) !important;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  line-height: 1.35;
+}
+.accTile .sapMGTSubHdrTxt {
+  color: var(--acc-gray-mid) !important;
+  font-size: 0.72rem !important;
+}
+.accTile .sapMIC .sapUiIcon {
+  color: var(--acc-purple) !important;
+  font-size: 2.4rem !important;
+}
+.accTile .sapMGTActionsContainer,
+.accTile .sapMGTActionsBtn {
+  display: none !important;
+}
+
+/* ---- FOOTER ---- */
+.accFooter.sapMTB {
+  background: var(--acc-dark) !important;
+  border-top: none !important;
+  min-height: 3rem;
+}
+.accFooterText.sapMText {
+  color: rgba(255, 255, 255, 0.38) !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.6px;
+}
+
+/* ================================================================
+   SECONDARY PAGES
+   ================================================================ */
+
+/* Header purple accent */
+.accSecondaryPage .sapMPageHeader {
+  border-bottom: 3px solid var(--acc-purple) !important;
+  background: var(--acc-white) !important;
+}
+.accSecondaryPage .sapMPageHeader .sapMTitle .sapMTitleCss {
+  color: var(--acc-dark) !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+}
+.accSecondaryPage .sapMPageNavButton .sapUiIcon {
+  color: var(--acc-purple) !important;
+}
+
+/* Remove default content padding for secondary pages */
+.accSecondaryPage .sapMPageSect {
+  padding: 0 !important;
+}
+
+/* Module hero banner */
+.accModuleHeroSection {
+  background: var(--acc-gradient);
+  padding: 56px 40px 64px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.accModuleHeroIcon.sapUiIcon {
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-size: 4.5rem !important;
+  margin-bottom: 20px;
+}
+.accModuleHeroTitle .sapMTitleCss {
+  color: #FFFFFF !important;
+  font-size: 2.2rem !important;
+  font-weight: 700 !important;
+}
+.accModuleDevBadge.sapMText {
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-top: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  display: inline-block;
+}
+
+/* Module content area */
+.accModuleContent {
+  background: var(--acc-purple-bg);
+  padding: 48px 40px 60px;
+}
+.accModuleContentText.sapMText {
+  color: var(--acc-gray-dark) !important;
+  font-size: 1rem !important;
+  max-width: 520px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* ================================================================
+   MANUAL PAYMENT FORM (One Time Vendor)
+   ================================================================ */
+
+.accFormPage.sapMPage {
+  background: var(--acc-purple-bg) !important;
+}
+
+/* Card wrapper */
+.accFormCard {
+  max-width: 1280px;
+  margin: 28px auto 40px;
+  padding: 28px 32px 32px;
+  background: var(--acc-white);
+  border-radius: 14px;
+  border-top: 4px solid var(--acc-purple);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* Card header */
+.accFormHeaderBar {
+  padding-bottom: 18px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--acc-purple-xlight);
+  row-gap: 8px;
+}
+.accFormTitle .sapMTitleCss {
+  color: var(--acc-purple-xdark) !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.2px;
+}
+.accFormSubtitle.sapMText {
+  color: var(--acc-gray-mid) !important;
+  font-size: 0.82rem !important;
+  margin-top: 4px;
+}
+.accTxnBox {
+  text-align: right;
+}
+.accTxnRef.sapMText {
+  color: var(--acc-purple-dark) !important;
+  font-size: 0.74rem !important;
+  font-weight: 600 !important;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Section titles */
+.accFormSectionTitle.sapMText,
+.accFormSectionTitle.sapMTitle .sapMTitleCss {
+  color: var(--acc-purple) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+.accFormSectionTitle.sapMText {
+  display: block;
+  margin: 22px 0 12px;
+}
+.accTableTitle {
+  letter-spacing: 1.6px;
+}
+
+/* Section toolbar (title + reset button) */
+.accSectionToolbar.sapMTB {
+  background: transparent !important;
+  border: none !important;
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 18px;
+}
+
+/* Attachment / upload block */
+.accUploadBlock {
+  margin-bottom: 4px;
+}
+.accMandatoryTag {
+  margin-left: 10px;
+}
+.accUploadHint.sapMText {
+  color: var(--acc-gray-mid) !important;
+  font-size: 0.82rem !important;
+  margin-bottom: 12px;
+  display: block;
+  max-width: 720px;
+  line-height: 1.5;
+}
+.accUploadSet {
+  border: 2px dashed var(--acc-purple-light);
+  border-radius: 12px;
+  background: var(--acc-purple-bg);
+  padding: 10px 14px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.accUploadSet:hover {
+  border-color: var(--acc-purple);
+  background: var(--acc-purple-xlight);
+}
+
+/* Character counter (sits on the label row, aligned with the field's hint text) */
+.accCharCounter.sapMText {
+  color: var(--acc-gray-mid) !important;
+  font-size: 0.66rem !important;
+  text-align: right;
+  flex-shrink: 0;
+}
+/* Spacing between the descriptive hint and the counter when both are present */
+.accFieldMetaRight {
+  gap: 10px;
+}
+
+/* Detail page header actions */
+.accDetailActions {
+  gap: 8px;
+}
+
+/* Prominent FB60 / F-53 status in detail */
+.accStatusBig .sapMObjStatusText {
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+}
+.accStatusBig {
+  margin-top: 4px;
+}
+
+/* Field grid */
+.accFormGrid {
+  margin-top: 6px;
+  width: 100%;
+}
+.accField {
+  margin-bottom: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+/* Long text fields take two columns on wide layouts (≥2 columns are present) */
+@media (min-width: 992px) {
+  .accFieldWide {
+    grid-column: span 2;
+  }
+}
+.accFieldLabel.sapMLabel {
+  color: var(--acc-gray-dark) !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 4px;
+}
+.accFieldLabel .sapMLabelColonAndRequired,
+.accFieldLabel.sapMLabelRequired .sapMLabelRequiredText {
+  color: var(--acc-purple) !important;
+}
+/* Label + hint row: keeps the hint to the right of the title so all inputs stay aligned */
+.accFieldLabelRow {
+  width: 100%;
+  margin-bottom: 4px;
+}
+.accFieldLabelRow .accFieldLabel.sapMLabel {
+  margin-bottom: 0 !important;
+}
+.accFieldHint.sapMText {
+  color: var(--acc-gray-mid) !important;
+  font-size: 0.68rem !important;
+  font-style: italic;
+  text-align: right;
+  padding-left: 8px;
+  flex-shrink: 0;
+}
+
+/* Inputs span the field width */
+.accField .sapMInputBase,
+.accField .sapMComboBox,
+.accField .sapMSlt,
+.accField .sapMDP {
+  width: 100% !important;
+}
+
+/* Dynamic scroll container for the line items table */
+.accTableScroll {
+  max-height: 380px;
+  border: 1px solid var(--acc-purple-xlight);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Records list scroll: a little taller, it is the main content */
+.accListScroll {
+  max-height: 60vh;
+  margin-top: 8px;
+}
+
+/* Line items table */
+.accLineItemsTable {
+  margin-top: 0;
+}
+.accLineItemsTable .sapMListTblHeaderCell {
+  background: var(--acc-purple-xlight) !important;
+}
+.accLineItemsTable .sapMListTblHeaderCell .sapMText {
+  color: var(--acc-purple-xdark) !important;
+  font-weight: 700 !important;
+  font-size: 0.74rem !important;
+}
+.accLineItemsTable .sapMListTblFooter {
+  background: var(--acc-purple-bg) !important;
+}
+.accTotalValue.sapMText {
+  color: var(--acc-purple-xdark) !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+}
+
+/* Prepared by */
+.accPreparedBy {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid var(--acc-purple-xlight);
+  gap: 14px;
+}
+.accPreparedLabel.sapMLabel {
+  margin-bottom: 0;
+}
+.accPreparedInput {
+  min-width: 320px;
+}
+
+/* Footer toolbar */
+.accFormFooter.sapMTB {
+  background: var(--acc-white) !important;
+  border-top: 1px solid var(--acc-purple-xlight) !important;
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 768px) {
+  .accTopbar                    { padding: 14px 20px; }
+  .accHeroBody                  { padding: 36px 24px 52px; }
+  .accHeroTitle .sapMTitleCss   { font-size: 2rem !important; }
+  .accTilesSection              { padding: 32px 16px 48px; }
+  .accTile.sapMGT               { width: 152px !important; height: 152px !important; margin: 8px !important; }
+  .accModuleHeroSection         { padding: 40px 24px 48px; }
+  .accModuleHeroTitle .sapMTitleCss { font-size: 1.6rem !important; }
+  .accFormCard                  { margin: 14px; padding: 20px 18px 24px; }
+  .accFormHeaderBar             { flex-direction: column; }
+  .accTxnBox                    { text-align: left; align-items: flex-start; }
+  .accFormTitle .sapMTitleCss   { font-size: 1.2rem !important; }
+  .accPreparedInput             { min-width: 100%; }
+}

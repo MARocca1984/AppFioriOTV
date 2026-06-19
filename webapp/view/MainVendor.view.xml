@@ -1,0 +1,31 @@
+<mvc:View
+    controllerName="vendorapp.controller.MainVendor"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+
+    <Page
+        id="mainVendorPage"
+        title="Main Vendor"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+        class="accSecondaryPage">
+
+        <content>
+            <VBox class="accModuleHeroSection" alignItems="Center" width="100%">
+                <core:Icon src="sap-icon://supplier" class="accModuleHeroIcon"/>
+                <Title text="Main Vendor" class="accModuleHeroTitle" level="H1" textAlign="Center"/>
+                <Text text="IN DEVELOPMENT" class="accModuleDevBadge"/>
+            </VBox>
+            <VBox class="accModuleContent" alignItems="Center" width="100%">
+                <Text
+                    text="This module handles the management of primary vendor master data, including general information, company code data, and purchasing organization data."
+                    class="accModuleContentText"
+                    textAlign="Center"/>
+            </VBox>
+        </content>
+
+    </Page>
+
+</mvc:View>

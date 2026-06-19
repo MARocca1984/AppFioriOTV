@@ -1,0 +1,31 @@
+<mvc:View
+    controllerName="vendorapp.controller.LowValuePayment"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+
+    <Page
+        id="lowValuePaymentPage"
+        title="Low Value Payment"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+        class="accSecondaryPage">
+
+        <content>
+            <VBox class="accModuleHeroSection" alignItems="Center" width="100%">
+                <core:Icon src="sap-icon://currency" class="accModuleHeroIcon"/>
+                <Title text="Low Value Payment" class="accModuleHeroTitle" level="H1" textAlign="Center"/>
+                <Text text="IN DEVELOPMENT" class="accModuleDevBadge"/>
+            </VBox>
+            <VBox class="accModuleContent" alignItems="Center" width="100%">
+                <Text
+                    text="This module handles the processing of low-value payments, providing a streamlined workflow for small transactions and petty cash disbursements within defined thresholds."
+                    class="accModuleContentText"
+                    textAlign="Center"/>
+            </VBox>
+        </content>
+
+    </Page>
+
+</mvc:View>

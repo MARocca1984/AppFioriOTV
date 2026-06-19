@@ -1,0 +1,17 @@
+{
+    "name": "vendor-management-webapp",
+    "version": "1.0.0",
+    "description": "Vendor Master Data Management — Accenture",
+    "private": true,
+    "scripts": {
+        "start": "ui5 serve",
+        "build": "ui5 build",
+        "build:opt": "ui5 build --all"
+    },
+    "devDependencies": {
+        "@ui5/cli": "^3.0.0"
+    },
+    "engines": {
+        "node": ">=16.0.0"
+    }
+}

@@ -1,0 +1,31 @@
+<mvc:View
+    controllerName="vendorapp.controller.OrderingAddress"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+
+    <Page
+        id="orderingAddressPage"
+        title="Ordering Address"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+        class="accSecondaryPage">
+
+        <content>
+            <VBox class="accModuleHeroSection" alignItems="Center" width="100%">
+                <core:Icon src="sap-icon://addresses" class="accModuleHeroIcon"/>
+                <Title text="Ordering Address" class="accModuleHeroTitle" level="H1" textAlign="Center"/>
+                <Text text="IN DEVELOPMENT" class="accModuleDevBadge"/>
+            </VBox>
+            <VBox class="accModuleContent" alignItems="Center" width="100%">
+                <Text
+                    text="This module manages vendor ordering addresses, enabling the configuration of specific delivery and correspondence addresses for purchase order processing."
+                    class="accModuleContentText"
+                    textAlign="Center"/>
+            </VBox>
+        </content>
+
+    </Page>
+
+</mvc:View>

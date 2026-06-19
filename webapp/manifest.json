@@ -1,0 +1,68 @@
+{
+    "_version": "1.58.0",
+    "sap.app": {
+        "id": "vendorapp",
+        "type": "application",
+        "title": "Vendor Management",
+        "description": "Vendor Master Data Management — Accenture",
+        "applicationVersion": { "version": "1.0.0" }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": false
+        }
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "vendorapp.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "app"
+        },
+        "dependencies": {
+            "minUI5Version": "1.108.0",
+            "libs": {
+                "sap.m": {},
+                "sap.f": {},
+                "sap.ui.layout": {},
+                "sap.ui.unified": {}
+            }
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "vendorapp.view",
+                "controlId": "appContainer",
+                "controlAggregation": "pages",
+                "async": true
+            },
+            "routes": [
+                { "name": "main",             "pattern": "",                 "target": ["main"]             },
+                { "name": "mainVendor",       "pattern": "MainVendor",       "target": ["mainVendor"]       },
+                { "name": "alternativePayee", "pattern": "AlternativePayee", "target": ["alternativePayee"] },
+                { "name": "orderingAddress",  "pattern": "OrderingAddress",  "target": ["orderingAddress"]  },
+                { "name": "oneTimeVendorList","pattern": "OneTimeVendorList","target": ["oneTimeVendorList"]},
+                { "name": "oneTimeVendor",    "pattern": "OneTimeVendor",    "target": ["oneTimeVendor"]    },
+                { "name": "oneTimeVendorDetail","pattern": "OneTimeVendorDetail/{index}","target": ["oneTimeVendorDetail"]},
+                { "name": "lowValuePayment",  "pattern": "LowValuePayment",  "target": ["lowValuePayment"]  }
+            ],
+            "targets": {
+                "main":             { "viewName": "Main",            "viewId": "main",            "viewLevel": 1 },
+                "mainVendor":       { "viewName": "MainVendor",      "viewId": "mainVendor",      "viewLevel": 2 },
+                "alternativePayee": { "viewName": "AlternativePayee","viewId": "alternativePayee","viewLevel": 2 },
+                "orderingAddress":  { "viewName": "OrderingAddress", "viewId": "orderingAddress", "viewLevel": 2 },
+                "oneTimeVendorList":{ "viewName": "OneTimeVendorList","viewId": "oneTimeVendorList","viewLevel": 2 },
+                "oneTimeVendor":    { "viewName": "OneTimeVendor",   "viewId": "oneTimeVendor",   "viewLevel": 3 },
+                "oneTimeVendorDetail":{ "viewName": "OneTimeVendorDetail","viewId": "oneTimeVendorDetail","viewLevel": 3 },
+                "lowValuePayment":  { "viewName": "LowValuePayment", "viewId": "lowValuePayment", "viewLevel": 2 }
+            }
+        },
+        "resources": {
+            "css": [{ "uri": "css/style.css" }]
+        }
+    }
+}

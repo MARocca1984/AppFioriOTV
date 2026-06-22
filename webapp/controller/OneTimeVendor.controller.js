@@ -320,16 +320,16 @@ sap.ui.define([
         // Persists the FULL record into the shared list (later: save to ZT_OTV_DATA),
         // then resets the form and returns to the list. Only runs after a successful DMS upload.
         _finishSubmit: function (oForm) {
-            var oModel = this.getView().getModel("vm");
-            var aItems = JSON.parse(JSON.stringify(oModel.getProperty("/items") || []));
             var oOtv = this.getOwnerComponent().getModel("otv");
             var aRecords = oOtv.getProperty("/records").slice();
 
+            // Line items are not captured on creation — they are managed from the
+            // record detail screen — so the new record starts with an empty list.
             var oRecord = Object.assign({}, oForm, {
                 invoiceAmount: this._numberFormat.format(this._toNumber(oForm.invoiceAmount)),
                 fb60Invoice: "",
                 f53Clearing: "",
-                items: aItems
+                items: []
             });
             aRecords.unshift(oRecord);
             oOtv.setProperty("/records", aRecords);

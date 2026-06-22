@@ -2,8 +2,9 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/format/NumberFormat",
-    "sap/m/MessageToast"
-], function (Controller, JSONModel, NumberFormat, MessageToast) {
+    "sap/m/MessageToast",
+    "sap/m/MessageBox"
+], function (Controller, JSONModel, NumberFormat, MessageToast, MessageBox) {
     "use strict";
 
     return Controller.extend("vendorapp.controller.OneTimeVendorDetail", {
@@ -188,8 +189,17 @@ sap.ui.define([
         },
 
         onCreateFB60: function () {
+            var oModel = this.getView().getModel("detail");
+            var aItems = oModel.getProperty("/data/items") || [];
+
+            // At least one line item is required before the FB60 invoice can be created.
+            if (aItems.length === 0) {
+                MessageBox.warning("Add at least one line item before creating the FB60 invoice.");
+                return;
+            }
+
             var sDoc = this._genDoc("51");
-            this.getView().getModel("detail").setProperty("/data/fb60Invoice", sDoc);
+            oModel.setProperty("/data/fb60Invoice", sDoc);
             this._persist();
             MessageToast.show("FB60 invoice created — document " + sDoc);
         },

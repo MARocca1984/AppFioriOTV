@@ -4,4 +4,7 @@ dist/
 *.log
 .idea/
 .vscode/
-``
+.DS_Store
+
+# Claude Code local (per-user) settings
+.claude/settings.local.json

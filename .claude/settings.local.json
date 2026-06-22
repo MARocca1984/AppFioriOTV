@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "PowerShell(Test-Path .\\\\node_modules\\\\@ui5\\\\cli; \\(Get-Command ui5 -ErrorAction SilentlyContinue\\).Source)",
-      "PowerShell(npx ui5 build --include-task=generateComponentPreload 2>&1)",
-      "PowerShell($paths = @\\(\"$env:USERPROFILE\\\\.ui5\\\\framework\\\\packages\",\"$env:USERPROFILE\\\\.ui5\"\\); foreach \\($p in $paths\\){ if\\(Test-Path $p\\){ Write-Output \"FOUND: $p\" } })"
-    ]
-  }
-}

@@ -38,7 +38,7 @@ jobs:
       # CDN (the source index.html stays untouched, so local "npm start" keeps working).
       - name: Point bootstrap to OpenUI5 CDN
         run: |
-          sed -i 's#src="resources/sap-ui-core.js"#src="https://sdk.openui5.org/1.120.0/resources/sap-ui-core.js"#' dist/index.html
+          sed -i 's#src="resources/sap-ui-core.js"#src="https://sdk.openui5.org/1.120.46/resources/sap-ui-core.js"#' dist/index.html
           touch dist/.nojekyll
 
       - name: Upload Pages artifact

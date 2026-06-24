@@ -6,7 +6,8 @@
     "scripts": {
         "start": "ui5 serve",
         "build": "ui5 build",
-        "build:opt": "ui5 build --all"
+        "build:opt": "ui5 build --all",
+        "build:standalone": "ui5 build && node tools/build-standalone.js"
     },
     "devDependencies": {
         "@ui5/cli": "^3.0.0"

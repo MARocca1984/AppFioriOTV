@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Management | Accenture</title>
+    <style>
+/* ================================================================
+   VENDOR MANAGEMENT | ACCENTURE DESIGN SYSTEM
+   ================================================================ */
+
+:root {
+  --acc-purple:        #A100FF;
+  --acc-purple-dark:   #7500C0;
+  --acc-purple-xdark:  #3D0066;
+  --acc-purple-light:  #C966FF;
+  --acc-purple-xlight: #F2E5FF;
+  --acc-purple-bg:     #F7F3FF;
+  --acc-black:         #000000;
+  --acc-dark:          #1A1A1A;
+  --acc-gray-dark:     #3D3D3D;
+  --acc-gray-mid:      #808080;
+  --acc-gray-light:    #BFBFBF;
+  --acc-white:         #FFFFFF;
+  --acc-gradient:      linear-gradient(135deg, #A100FF 0%, #3D0066 100%);
+}
+
+/* ---- LANDING PAGE SHELL ---- */
+.accLandingPage .sapMPageSect {
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+.accLandingPage.sapMPage {
+  background: var(--acc-purple-bg) !important;
+}
+
+/* ---- HERO ---- */
+.accHero {
+  background: var(--acc-gradient);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.accTopbar {
+  padding: 18px 44px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-sizing: border-box;
+}
+.accTopbarIcon.sapUiIcon {
+  color: #FFFFFF !important;
+  font-size: 1.5rem !important;
+  margin-right: 10px;
+}
+.accTopbarTitle .sapMTitleCss {
+  color: #FFFFFF !important;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px;
+}
+.accTopbarBrand.sapMText {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 0.8rem !important;
+  font-style: italic;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.accHeroBody {
+  padding: 52px 48px 68px;
+  text-align: center;
+}
+.accHeroTitle .sapMTitleCss {
+  color: #FFFFFF !important;
+  font-size: 2.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+}
+.accHeroSubtitle.sapMText {
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-size: 1.05rem !important;
+  font-weight: 300 !important;
+  margin-top: 14px;
+}
+
+/* ---- TILES SECTION (lift card over hero) ---- */
+.accTilesSection {
+  background: var(--acc-purple-bg);
+  border-radius: 24px 24px 0 0;
+  margin-top: -24px;
+  padding: 40px 40px 64px;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  min-height: 300px;
+}
+
+.accSectionLabel.sapMText {
+  color: var(--acc-gray-mid) !important;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.accTilesContainer {
+  max-width: 1120px;
+  width: 100%;
+  padding: 20px 0 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+/* ---- GENERIC TILE — MODULE CARD ---- */
+.accTile.sapMGT {
+  width: 188px !important;
+  height: 188px !important;
+  border: none !important;
+  border-top: 3px solid var(--acc-purple) !important;
+  border-radius: 0 0 10px 10px !important;
+  background: var(--acc-white) !important;
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.07) !important;
+  transition: box-shadow 0.22s ease, transform 0.22s ease !important;
+  margin: 12px !important;
+  cursor: pointer;
+}
+.accTile.sapMGT:hover {
+  box-shadow: 0 14px 44px rgba(161, 0, 255, 0.22) !important;
+  transform: translateY(-5px);
+}
+.accTile.sapMGT:focus {
+  outline: 2px solid var(--acc-purple) !important;
+  outline-offset: 2px;
+}
+
+.accTile .sapMGTHdrTxt {
+  color: var(--acc-dark) !important;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  line-height: 1.35;
+}
+.accTile .sapMGTSubHdrTxt {
+  color: var(--acc-gray-mid) !important;
+  font-size: 0.72rem !important;
+}
+.accTile .sapMIC .sapUiIcon {
+  color: var(--acc-purple) !important;
+  font-size: 2.4rem !important;
+}
+.accTile .sapMGTActionsContainer,
+.accTile .sapMGTActionsBtn {
+  display: none !important;
+}
+
+/* ---- FOOTER ---- */
+.accFooter.sapMTB {
+  background: var(--acc-dark) !important;
+  border-top: none !important;
+  min-height: 3rem;
+}
+.accFooterText.sapMText {
+  color: rgba(255, 255, 255, 0.38) !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.6px;
+}
+
+/* ================================================================
+   SECONDARY PAGES
+   ================================================================ */
+
+/* Header purple accent */
+.accSecondaryPage .sapMPageHeader {
+  border-bottom: 3px solid var(--acc-purple) !important;
+  background: var(--acc-white) !important;
+}
+.accSecondaryPage .sapMPageHeader .sapMTitle .sapMTitleCss {
+  color: var(--acc-dark) !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+}
+.accSecondaryPage .sapMPageNavButton .sapUiIcon {
+  color: var(--acc-purple) !important;
+}
+
+/* Remove default content padding for secondary pages */
+.accSecondaryPage .sapMPageSect {
+  padding: 0 !important;
+}
+
+/* Module hero banner */
+.accModuleHeroSection {
+  background: var(--acc-gradient);
+  padding: 56px 40px 64px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.accModuleHeroIcon.sapUiIcon {
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-size: 4.5rem !important;
+  margin-bottom: 20px;
+}
+.accModuleHeroTitle .sapMTitleCss {
+  color: #FFFFFF !important;
+  font-size: 2.2rem !important;
+  font-weight: 700 !important;
+}
+.accModuleDevBadge.sapMText {
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-size: 0.68rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  padding: 4px 14px;
+  margin-top: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  display: inline-block;
+}
+
+/* Module content area */
+.accModuleContent {
+  background: var(--acc-purple-bg);
+  padding: 48px 40px 60px;
+}
+.accModuleContentText.sapMText {
+  color: var(--acc-gray-dark) !important;
+  font-size: 1rem !important;
+  max-width: 520px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* ================================================================
+   MANUAL PAYMENT FORM (One Time Vendor)
+   ================================================================ */
+
+.accFormPage.sapMPage {
+  background: var(--acc-purple-bg) !important;
+}
+
+/* Card wrapper */
+.accFormCard {
+  max-width: 1280px;
+  margin: 28px auto 40px;
+  padding: 28px 32px 32px;
+  background: var(--acc-white);
+  border-radius: 14px;
+  border-top: 4px solid var(--acc-purple);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+/* Card header */
+.accFormHeaderBar {
+  padding-bottom: 18px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--acc-purple-xlight);
+  row-gap: 8px;
+}
+.accFormTitle .sapMTitleCss {
+  color: var(--acc-purple-xdark) !important;
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.2px;
+}
+.accFormSubtitle.sapMText {
+  color: var(--acc-gray-mid) !important;
+  font-size: 0.82rem !important;
+  margin-top: 4px;
+}
+.accTxnBox {
+  text-align: right;
+}
+.accTxnRef.sapMText {
+  color: var(--acc-purple-dark) !important;
+  font-size: 0.74rem !important;
+  font-weight: 600 !important;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Section titles */
+.accFormSectionTitle.sapMText,
+.accFormSectionTitle.sapMTitle .sapMTitleCss {
+  color: var(--acc-purple) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+.accFormSectionTitle.sapMText {
+  display: block;
+  margin: 22px 0 12px;
+}
+.accTableTitle {
+  letter-spacing: 1.6px;
+}
+
+/* Section toolbar (title + reset button) */
+.accSectionToolbar.sapMTB {
+  background: transparent !important;
+  border: none !important;
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 18px;
+}
+
+/* Attachment / upload block */
+.accUploadBlock {
+  margin-bottom: 4px;
+}
+.accMandatoryTag {
+  margin-left: 10px;
+}
+.accUploadHint.sapMText {
+  color: var(--acc-gray-mid) !important;
+  font-size: 0.82rem !important;
+  margin-bottom: 12px;
+  display: block;
+  max-width: 720px;
+  line-height: 1.5;
+}
+.accUploadSet {
+  border: 2px dashed var(--acc-purple-light);
+  border-radius: 12px;
+  background: var(--acc-purple-bg);
+  padding: 10px 14px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.accUploadSet:hover {
+  border-color: var(--acc-purple);
+  background: var(--acc-purple-xlight);
+}
+
+/* Character counter (sits on the label row, aligned with the field's hint text) */
+.accCharCounter.sapMText {
+  color: var(--acc-gray-mid) !important;
+  font-size: 0.66rem !important;
+  text-align: right;
+  flex-shrink: 0;
+}
+/* Spacing between the descriptive hint and the counter when both are present */
+.accFieldMetaRight {
+  gap: 10px;
+}
+
+/* Detail page header actions */
+.accDetailActions {
+  gap: 8px;
+}
+
+/* Prominent FB60 / F-53 status in detail */
+.accStatusBig .sapMObjStatusText {
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+}
+.accStatusBig {
+  margin-top: 4px;
+}
+
+/* Field grid */
+.accFormGrid {
+  margin-top: 6px;
+  width: 100%;
+}
+.accField {
+  margin-bottom: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+/* Long text fields take two columns on wide layouts (≥2 columns are present) */
+@media (min-width: 992px) {
+  .accFieldWide {
+    grid-column: span 2;
+  }
+}
+.accFieldLabel.sapMLabel {
+  color: var(--acc-gray-dark) !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 4px;
+}
+.accFieldLabel .sapMLabelColonAndRequired,
+.accFieldLabel.sapMLabelRequired .sapMLabelRequiredText {
+  color: var(--acc-purple) !important;
+}
+/* Label + hint row: keeps the hint to the right of the title so all inputs stay aligned */
+.accFieldLabelRow {
+  width: 100%;
+  margin-bottom: 4px;
+}
+.accFieldLabelRow .accFieldLabel.sapMLabel {
+  margin-bottom: 0 !important;
+}
+.accFieldHint.sapMText {
+  color: var(--acc-gray-mid) !important;
+  font-size: 0.68rem !important;
+  font-style: italic;
+  text-align: right;
+  padding-left: 8px;
+  flex-shrink: 0;
+}
+
+/* Inputs span the field width */
+.accField .sapMInputBase,
+.accField .sapMComboBox,
+.accField .sapMSlt,
+.accField .sapMDP {
+  width: 100% !important;
+}
+
+/* Dynamic scroll container for the line items table */
+.accTableScroll {
+  max-height: 380px;
+  border: 1px solid var(--acc-purple-xlight);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Records list scroll: a little taller, it is the main content */
+.accListScroll {
+  max-height: 60vh;
+  margin-top: 8px;
+}
+
+/* Line items table */
+.accLineItemsTable {
+  margin-top: 0;
+}
+.accLineItemsTable .sapMListTblHeaderCell {
+  background: var(--acc-purple-xlight) !important;
+}
+.accLineItemsTable .sapMListTblHeaderCell .sapMText {
+  color: var(--acc-purple-xdark) !important;
+  font-weight: 700 !important;
+  font-size: 0.74rem !important;
+}
+.accLineItemsTable .sapMListTblFooter {
+  background: var(--acc-purple-bg) !important;
+}
+.accTotalValue.sapMText {
+  color: var(--acc-purple-xdark) !important;
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+}
+
+/* Prepared by */
+.accPreparedBy {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid var(--acc-purple-xlight);
+  gap: 14px;
+}
+.accPreparedLabel.sapMLabel {
+  margin-bottom: 0;
+}
+.accPreparedInput {
+  min-width: 320px;
+}
+
+/* Footer toolbar */
+.accFormFooter.sapMTB {
+  background: var(--acc-white) !important;
+  border-top: 1px solid var(--acc-purple-xlight) !important;
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 768px) {
+  .accTopbar                    { padding: 14px 20px; }
+  .accHeroBody                  { padding: 36px 24px 52px; }
+  .accHeroTitle .sapMTitleCss   { font-size: 2rem !important; }
+  .accTilesSection              { padding: 32px 16px 48px; }
+  .accTile.sapMGT               { width: 152px !important; height: 152px !important; margin: 8px !important; }
+  .accModuleHeroSection         { padding: 40px 24px 48px; }
+  .accModuleHeroTitle .sapMTitleCss { font-size: 1.6rem !important; }
+  .accFormCard                  { margin: 14px; padding: 20px 18px 24px; }
+  .accFormHeaderBar             { flex-direction: column; }
+  .accTxnBox                    { text-align: left; align-items: flex-start; }
+  .accFormTitle .sapMTitleCss   { font-size: 1.2rem !important; }
+  .accPreparedInput             { min-width: 100%; }
+}
+
+    </style>
+    <script id="sap-ui-bootstrap"
+        src="https://sdk.openui5.org/1.120.46/resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_horizon"
+        data-sap-ui-libs="sap.m,sap.f,sap.ui.layout,sap.ui.unified"
+        data-sap-ui-compatVersion="edge"
+        data-sap-ui-async="false"
+        data-sap-ui-resourceroots='{"vendorapp": "./"}'>
+    </script>
+    <script>
+//@ui5-bundle vendorapp/Component-preload.js
+sap.ui.require.preload({
+	"vendorapp/Component.js":function(){
+sap.ui.define(["sap/ui/core/UIComponent","sap/ui/Device","sap/ui/model/json/JSONModel"],function(e,t,o){"use strict";return e.extend("vendorapp.Component",{metadata:{manifest:"json"},init:function(){e.prototype.init.apply(this,arguments);var a=new o(t);a.setDefaultBindingMode("OneWay");this.setModel(a,"device");var i=new o({records:[{companyCode:"1700",paymentDate:"2025-09-03",documentDate:"2025-09-01",receivedDate:"2025-08-30",baselineDate:"2025-09-01",exceptionReason:"Rush AP - No Vendor",invoiceInformation:"SUPERSOCIEDADES CONTRIBUCION 2025",paymentMethod:"M",payeeName:"TMF COLOMBIA LTDA",payeeCity:"BOGOTA",invoiceAmount:"20,020,000",taxAmount:"0",docType:"KR",sapVendor:"4170000",paymentCurrency:"COP",cashClearingGL:"101223",valueDate:"2025-09-03",clearingText:"89999086 SUPERSOCIEDADES CONTRIBUCION 2025",preparedBy:"M. Rocca",fb60Invoice:"",f53Clearing:"",items:[{postingKey:"40 - Debit",glAccount:"714104",debit:"20020000",credit:"",taxCode:"",costCtr:"",wbsElement:"LI082006",profitCtr:"",companyCode:"1700",text:"89999086 SUPERSOCIEDADES CONTRIBUCION 2025"}]},{companyCode:"1900",paymentDate:"2022-08-18",documentDate:"2022-08-18",receivedDate:"2022-08-09",baselineDate:"2022-08-18",exceptionReason:"Statutory/Tax",invoiceInformation:"Pago anticipo Diplomado en Desarrollo de Competencias",paymentMethod:"M",payeeName:"UNIVERSIDAD NACIONAL AUTONOMA DE MEXICO",payeeCity:"México",invoiceAmount:"15,000.00",taxAmount:"0",docType:"KR",sapVendor:"4190000",paymentCurrency:"MXN",cashClearingGL:"540000",valueDate:"2022-08-18",clearingText:"Pago anticipo Diplomado en Desarrollo de Competencias",preparedBy:"M. Rocca",fb60Invoice:"5100001234",f53Clearing:"",items:[{postingKey:"40 - Debit",glAccount:"540000",debit:"15000",credit:"",taxCode:"",costCtr:"",wbsElement:"",profitCtr:"",companyCode:"1900",text:"Pago anticipo Diplomado"}]},{companyCode:"1700",paymentDate:"2025-07-21",documentDate:"2025-07-20",receivedDate:"2025-07-18",baselineDate:"2025-07-20",exceptionReason:"Urgent Payment",invoiceInformation:"Servicios logisticos julio 2025",paymentMethod:"Q",payeeName:"SERVICIOS LOGISTICOS ANDINOS SAS",payeeCity:"MEDELLIN",invoiceAmount:"8,450,000",taxAmount:"0",docType:"KR",sapVendor:"4180022",paymentCurrency:"COP",cashClearingGL:"101223",valueDate:"2025-07-21",clearingText:"Servicios logisticos julio 2025",preparedBy:"M. Rocca",fb60Invoice:"5100007777",f53Clearing:"1500003333",items:[{postingKey:"40 - Debit",glAccount:"714104",debit:"8450000",credit:"",taxCode:"",costCtr:"",wbsElement:"",profitCtr:"",companyCode:"1700",text:"Servicios logisticos julio 2025"}]}]});this.setModel(i,"otv");this.getRouter().initialize()}})});
+},
+	"vendorapp/controller/AlternativePayee.controller.js":function(){
+sap.ui.define(["sap/ui/core/mvc/Controller"],function(n){"use strict";return n.extend("vendorapp.controller.AlternativePayee",{onInit:function(){},onNavBack:function(){this.getOwnerComponent().getRouter().navTo("main")}})});
+},
+	"vendorapp/controller/App.controller.js":function(){
+sap.ui.define(["sap/ui/core/mvc/Controller"],function(n){"use strict";return n.extend("vendorapp.controller.App",{onInit:function(){}})});
+},
+	"vendorapp/controller/LowValuePayment.controller.js":function(){
+sap.ui.define(["sap/ui/core/mvc/Controller"],function(n){"use strict";return n.extend("vendorapp.controller.LowValuePayment",{onInit:function(){},onNavBack:function(){this.getOwnerComponent().getRouter().navTo("main")}})});
+},
+	"vendorapp/controller/Main.controller.js":function(){
+sap.ui.define(["sap/ui/core/mvc/Controller"],function(n){"use strict";return n.extend("vendorapp.controller.Main",{onInit:function(){},onNavigateMainVendor:function(){this._navTo("mainVendor")},onNavigateAlternativePayee:function(){this._navTo("alternativePayee")},onNavigateOrderingAddress:function(){this._navTo("orderingAddress")},onNavigateOneTimeVendor:function(){this._navTo("oneTimeVendorList")},onNavigateLowValuePayment:function(){this._navTo("lowValuePayment")},_navTo:function(n){this.getOwnerComponent().getRouter().navTo(n)}})});
+},
+	"vendorapp/controller/MainVendor.controller.js":function(){
+sap.ui.define(["sap/ui/core/mvc/Controller"],function(n){"use strict";return n.extend("vendorapp.controller.MainVendor",{onInit:function(){},onNavBack:function(){this.getOwnerComponent().getRouter().navTo("main")}})});
+},
+	"vendorapp/controller/OneTimeVendor.controller.js":function(){
+sap.ui.define(["sap/ui/core/mvc/Controller","sap/ui/model/json/JSONModel","sap/ui/core/format/NumberFormat","sap/m/MessageToast","sap/m/MessageBox"],function(e,t,i,o,n){"use strict";return e.extend("vendorapp.controller.OneTimeVendor",{onInit:function(){this._numberFormat=i.getFloatInstance({groupingEnabled:true,minFractionDigits:0,maxFractionDigits:2});var e=new t(this._getEmptyData());this.getView().setModel(e,"vm");this._recalcTotals();this.getOwnerComponent().getRouter().getRoute("oneTimeVendor").attachPatternMatched(this._resetAll,this)},_getEmptyForm:function(){return{companyCode:"",paymentDate:"",documentDate:"",receivedDate:"",baselineDate:"",exceptionReason:"Statutory/Tax",invoiceInformation:"",paymentMethod:"M",payeeName:"",payeeCity:"",invoiceAmount:"",taxAmount:"",docType:"",sapVendor:"",paymentCurrency:"MXN",cashClearingGL:"",valueDate:"",clearingText:"",preparedBy:""}},_getEmptyData:function(){return{fileUploaded:false,form:this._getEmptyForm(),items:[this._getEmptyItem()],totalDebit:"0",totalCredit:"0"}},_getEmptyItem:function(){return{postingKey:"40 - Debit",glAccount:"",debit:"",credit:"",taxCode:"",costCtr:"",wbsElement:"",profitCtr:"",companyCode:"",text:""}},_toNumber:function(e){if(e===null||e===undefined||e===""){return 0}var t=parseFloat(String(e).replace(/[^0-9.\-]/g,""));return isNaN(t)?0:t},_recalcTotals:function(){var e=this.getView().getModel("vm");var t=e.getProperty("/items")||[];var i=0;var o=0;t.forEach(function(e){i+=this._toNumber(e.debit);o+=this._toNumber(e.credit)}.bind(this));e.setProperty("/totalDebit",this._numberFormat.format(i));e.setProperty("/totalCredit",this._numberFormat.format(o))},onRecalc:function(){this._recalcTotals()},onFileAdded:function(e){var t=e.getParameter("item");this._uploadedFile=t.getFileObject();this.getView().getModel("vm").setProperty("/fileUploaded",false);this._startUpload(t)},_startUpload:function(e){var t=this.getView().getModel("vm");var i=0;if(this._uploadTimer){clearInterval(this._uploadTimer)}e.setUploadState("Uploading");e.setProgress(0);this._uploadTimer=setInterval(function(){i+=5;if(i>=100){e.setProgress(100);clearInterval(this._uploadTimer);this._uploadTimer=null;e.setUploadState("Complete");t.setProperty("/fileUploaded",true);o.show("Upload complete.")}else{e.setProgress(i)}}.bind(this),70)},_sendFileToDMS:function(e){return Promise.resolve()},onFileRemoved:function(){if(this._uploadTimer){clearInterval(this._uploadTimer);this._uploadTimer=null}this.getView().getModel("vm").setProperty("/fileUploaded",this._getAttachmentCount()>0)},_getAttachmentCount:function(){var e=this.byId("attachmentUploadSet");if(!e){return 0}return e.getItems().length+e.getIncompleteItems().length},_getItemIndex:function(e){var t=e.getSource().getBindingContext("vm");return parseInt(t.getPath().split("/").pop(),10)},onAddItem:function(){var e=this.getView().getModel("vm");var t=e.getProperty("/items").slice();t.push(this._getEmptyItem());e.setProperty("/items",t);this._recalcTotals()},onCopyItem:function(e){var t=this.getView().getModel("vm");var i=t.getProperty("/items").slice();var n=this._getItemIndex(e);var r=Object.assign({},i[n]);i.splice(n+1,0,r);t.setProperty("/items",i);this._recalcTotals();o.show("Line copied.")},onDeleteItem:function(e){var t=this.getView().getModel("vm");var i=t.getProperty("/items");if(i.length<=1){o.show("At least one line item is required.");return}var n=this._getItemIndex(e);var r=i.slice();r.splice(n,1);t.setProperty("/items",r);this._recalcTotals()},onSubmit:function(){var e=this.getView().getModel("vm").getProperty("/form");var t=[];var i={companyCode:"Company Code",paymentDate:"Payment Date",documentDate:"Document Date",receivedDate:"Received Date",baselineDate:"Baseline Date",exceptionReason:"Reference",invoiceInformation:"Invoice Information",paymentMethod:"Payment Method",payeeName:"Payee Name",payeeCity:"Payee City",invoiceAmount:"Invoice Amount",paymentCurrency:"Payment Currency",cashClearingGL:"Cash Clearing GL",valueDate:"Value Date",clearingText:"Clearing Text",preparedBy:"Prepared by"};Object.keys(i).forEach(function(o){var n=e[o];if(n===null||n===undefined||String(n).trim()===""){t.push(i[o])}});if(t.length>0){n.warning("Please complete the following required field(s):\n\n• "+t.join("\n• "));return}var o=this;this.byId("oneTimeVendorPage").setBusy(true);this._sendFileToDMS(this._uploadedFile).then(function(){o.byId("oneTimeVendorPage").setBusy(false);o._finishSubmit(e)}).catch(function(e){o.byId("oneTimeVendorPage").setBusy(false);var t=e&&e.message?e.message:String(e);n.error("The request could not be submitted because the attachment upload to DMS failed:\n\n"+t)})},_finishSubmit:function(e){var t=this.getOwnerComponent().getModel("otv");var i=t.getProperty("/records").slice();var n=Object.assign({},e,{invoiceAmount:this._numberFormat.format(this._toNumber(e.invoiceAmount)),fb60Invoice:"",f53Clearing:"",items:[]});i.unshift(n);t.setProperty("/records",i);this._resetAll();o.show("Request submitted and added to the list.");this.getOwnerComponent().getRouter().navTo("oneTimeVendorList")},_resetAll:function(){this.getView().getModel("vm").setData(this._getEmptyData());this._recalcTotals();if(this._uploadTimer){clearInterval(this._uploadTimer);this._uploadTimer=null}this._uploadedFile=null;var e=this.byId("attachmentUploadSet");if(e){e.removeAllItems();e.removeAllIncompleteItems()}},onResetFields:function(){n.confirm("Clear all fields in the Payment Details section?",{title:"Reset Fields",onClose:function(e){if(e===n.Action.OK){this.getView().getModel("vm").setProperty("/form",this._getEmptyForm());o.show("Fields cleared.")}}.bind(this)})},onResetTable:function(){n.confirm("Remove all line items and start with one empty row?",{title:"Reset Table",onClose:function(e){if(e===n.Action.OK){this.getView().getModel("vm").setProperty("/items",[this._getEmptyItem()]);this._recalcTotals();o.show("Line items cleared.")}}.bind(this)})},onNavBack:function(){this.getOwnerComponent().getRouter().navTo("oneTimeVendorList")}})});
+},
+	"vendorapp/controller/OneTimeVendorDetail.controller.js":function(){
+sap.ui.define(["sap/ui/core/mvc/Controller","sap/ui/model/json/JSONModel","sap/ui/core/format/NumberFormat","sap/m/MessageToast","sap/m/MessageBox"],function(t,e,r,i,o){"use strict";return t.extend("vendorapp.controller.OneTimeVendorDetail",{onInit:function(){this._numberFormat=r.getFloatInstance({groupingEnabled:true,minFractionDigits:0,maxFractionDigits:2});this.getView().setModel(new e({index:-1,editMode:false,dirty:false,data:{},totalDebit:"0",totalCredit:"0"}),"detail");this.getOwnerComponent().getRouter().getRoute("oneTimeVendorDetail").attachPatternMatched(this._onRouteMatched,this)},_onRouteMatched:function(t){var e=parseInt(t.getParameter("arguments").index,10);this._loadRecord(e)},_loadRecord:function(t){var e=this.getOwnerComponent().getModel("otv");var r=e.getProperty("/records/"+t);var i=this.getView().getModel("detail");if(!r){this.onNavBack();return}i.setProperty("/index",t);i.setProperty("/editMode",false);i.setProperty("/dirty",false);i.setProperty("/data",JSON.parse(JSON.stringify(r)));this._recalc()},_toNumber:function(t){if(t===null||t===undefined||t===""){return 0}var e=parseFloat(String(t).replace(/[^0-9.\-]/g,""));return isNaN(e)?0:e},_recalc:function(){var t=this.getView().getModel("detail");var e=t.getProperty("/data/items")||[];var r=0;var i=0;e.forEach(function(t){r+=this._toNumber(t.debit);i+=this._toNumber(t.credit)}.bind(this));t.setProperty("/totalDebit",this._numberFormat.format(r));t.setProperty("/totalCredit",this._numberFormat.format(i))},_markDirty:function(){var t=this.getView().getModel("detail");if(t.getProperty("/editMode")){t.setProperty("/dirty",true)}},onFieldChange:function(){this._markDirty()},onItemAmountChange:function(){this._recalc();this._markDirty()},onModify:function(){this.getView().getModel("detail").setProperty("/editMode",true)},onCancel:function(){this._loadRecord(this.getView().getModel("detail").getProperty("/index"))},onSave:function(){var t=this.getView().getModel("detail");this._persist();t.setProperty("/editMode",false);t.setProperty("/dirty",false);i.show("Changes saved.")},_persist:function(){var t=this.getView().getModel("detail");var e=t.getProperty("/index");var r=JSON.parse(JSON.stringify(t.getProperty("/data")));this.getOwnerComponent().getModel("otv").setProperty("/records/"+e,r)},_getEmptyItem:function(){return{postingKey:"40 - Debit",glAccount:"",debit:"",credit:"",taxCode:"",costCtr:"",wbsElement:"",profitCtr:"",companyCode:"",text:""}},_getItemIndex:function(t){return parseInt(t.getSource().getBindingContext("detail").getPath().split("/").pop(),10)},onAddItem:function(){var t=this.getView().getModel("detail");var e=(t.getProperty("/data/items")||[]).slice();e.push(this._getEmptyItem());t.setProperty("/data/items",e);this._recalc();this._markDirty()},onCopyItem:function(t){var e=this.getView().getModel("detail");var r=e.getProperty("/data/items").slice();var i=this._getItemIndex(t);r.splice(i+1,0,Object.assign({},r[i]));e.setProperty("/data/items",r);this._recalc();this._markDirty()},onDeleteItem:function(t){var e=this.getView().getModel("detail");var r=e.getProperty("/data/items");if(r.length<=1){i.show("At least one line item is required.");return}var o=r.slice();o.splice(this._getItemIndex(t),1);e.setProperty("/data/items",o);this._recalc();this._markDirty()},_genDoc:function(t){var e=String(Math.floor(Math.random()*1e8)).padStart(8,"0");return t+e},onCreateFB60:function(){var t=this.getView().getModel("detail");var e=t.getProperty("/data/items")||[];if(e.length===0){o.warning("Add at least one line item before creating the FB60 invoice.");return}var r=this._genDoc("51");t.setProperty("/data/fb60Invoice",r);this._persist();i.show("FB60 invoice created — document "+r)},onCreateF53:function(){var t=this._genDoc("15");this.getView().getModel("detail").setProperty("/data/f53Clearing",t);this._persist();i.show("F-53 clearing created — document "+t)},onNavBack:function(){this.getOwnerComponent().getRouter().navTo("oneTimeVendorList")}})});
+},
+	"vendorapp/controller/OneTimeVendorList.controller.js":function(){
+sap.ui.define(["sap/ui/core/mvc/Controller","sap/ui/model/json/JSONModel","sap/ui/model/Filter","sap/ui/model/FilterOperator"],function(e,t,n,o){"use strict";return e.extend("vendorapp.controller.OneTimeVendorList",{onInit:function(){this.getView().setModel(new t({companyCode:"",sapVendor:"",payeeName:"",paymentDate:""}),"flt")},onApplyFilters:function(){var e=this.getView().getModel("flt").getData();var t=[];if(e.companyCode){t.push(new n({path:"companyCode",operator:o.Contains,value1:e.companyCode,caseSensitive:false}))}if(e.sapVendor){t.push(new n({path:"sapVendor",operator:o.Contains,value1:e.sapVendor,caseSensitive:false}))}if(e.payeeName){t.push(new n({path:"payeeName",operator:o.Contains,value1:e.payeeName,caseSensitive:false}))}if(e.paymentDate){t.push(new n("paymentDate",o.EQ,e.paymentDate))}this.byId("otvRecordsTable").getBinding("items").filter(t)},onClearFilters:function(){this.getView().getModel("flt").setData({companyCode:"",sapVendor:"",payeeName:"",paymentDate:""});this.byId("otvRecordsTable").getBinding("items").filter([])},onCreateOTV:function(){this.getOwnerComponent().getRouter().navTo("oneTimeVendor")},onRecordPress:function(e){var t=e.getSource().getBindingContext("otv").getPath().split("/").pop();this.getOwnerComponent().getRouter().navTo("oneTimeVendorDetail",{index:t})},onNavBack:function(){this.getOwnerComponent().getRouter().navTo("main")}})});
+},
+	"vendorapp/controller/OrderingAddress.controller.js":function(){
+sap.ui.define(["sap/ui/core/mvc/Controller"],function(n){"use strict";return n.extend("vendorapp.controller.OrderingAddress",{onInit:function(){},onNavBack:function(){this.getOwnerComponent().getRouter().navTo("main")}})});
+},
+	"vendorapp/i18n/i18n.properties":'# App\nappTitle=Requisition To Pay Portal\nappDescription=Requisition To Pay Portal\n\n# Landing page\n#hero.title=Vendor Master Data\nhero.subtitle=Select a module to get started\nsection.label=AVAILABLE MODULES\n\n# Module tiles\ntile.mainVendor.header=Main Vendor\ntile.mainVendor.sub=Primary vendor records\n\ntile.alternativePayee.header=Alternative Payee\ntile.alternativePayee.sub=Payee assignments\n\ntile.orderingAddress.header=Ordering Address\ntile.orderingAddress.sub=Address management\n\ntile.oneTimeVendor.header=One Time Vendor\ntile.oneTimeVendor.sub=Temporary vendor setup\n\ntile.lowValuePayment.header=Low Value Payment\ntile.lowValuePayment.sub=Low-value payment processing\n\n# Navigation\nnav.back=Back\nfooter.copyright=\\u00a9 2025 Accenture. All rights reserved.\n',
+	"vendorapp/manifest.json":'{"_version":"1.58.0","sap.app":{"id":"vendorapp","type":"application","title":"Vendor Management","description":"Vendor Master Data Management — Accenture","applicationVersion":{"version":"1.0.0"}},"sap.ui":{"technology":"UI5","deviceTypes":{"desktop":true,"tablet":true,"phone":false}},"sap.ui5":{"rootView":{"viewName":"vendorapp.view.App","type":"XML","async":true,"id":"app"},"dependencies":{"minUI5Version":"1.108.0","libs":{"sap.m":{},"sap.f":{},"sap.ui.layout":{},"sap.ui.unified":{}}},"routing":{"config":{"routerClass":"sap.m.routing.Router","viewType":"XML","viewPath":"vendorapp.view","controlId":"appContainer","controlAggregation":"pages","async":true},"routes":[{"name":"main","pattern":"","target":["main"]},{"name":"mainVendor","pattern":"MainVendor","target":["mainVendor"]},{"name":"alternativePayee","pattern":"AlternativePayee","target":["alternativePayee"]},{"name":"orderingAddress","pattern":"OrderingAddress","target":["orderingAddress"]},{"name":"oneTimeVendorList","pattern":"OneTimeVendorList","target":["oneTimeVendorList"]},{"name":"oneTimeVendor","pattern":"OneTimeVendor","target":["oneTimeVendor"]},{"name":"oneTimeVendorDetail","pattern":"OneTimeVendorDetail/{index}","target":["oneTimeVendorDetail"]},{"name":"lowValuePayment","pattern":"LowValuePayment","target":["lowValuePayment"]}],"targets":{"main":{"viewName":"Main","viewId":"main","viewLevel":1},"mainVendor":{"viewName":"MainVendor","viewId":"mainVendor","viewLevel":2},"alternativePayee":{"viewName":"AlternativePayee","viewId":"alternativePayee","viewLevel":2},"orderingAddress":{"viewName":"OrderingAddress","viewId":"orderingAddress","viewLevel":2},"oneTimeVendorList":{"viewName":"OneTimeVendorList","viewId":"oneTimeVendorList","viewLevel":2},"oneTimeVendor":{"viewName":"OneTimeVendor","viewId":"oneTimeVendor","viewLevel":3},"oneTimeVendorDetail":{"viewName":"OneTimeVendorDetail","viewId":"oneTimeVendorDetail","viewLevel":3},"lowValuePayment":{"viewName":"LowValuePayment","viewId":"lowValuePayment","viewLevel":2}}},"resources":{"css":[{"uri":"css/style.css"}]}}}',
+	"vendorapp/view/AlternativePayee.view.xml":'<mvc:View\n    controllerName="vendorapp.controller.AlternativePayee"\n    xmlns:mvc="sap.ui.core.mvc"\n    xmlns="sap.m"\n    xmlns:core="sap.ui.core"\n    displayBlock="true"><Page\n        id="alternativePayeePage"\n        title="Alternative Payee"\n        showNavButton="true"\n        navButtonPress="onNavBack"\n        class="accSecondaryPage"><content><VBox class="accModuleHeroSection" alignItems="Center" width="100%"><core:Icon src="sap-icon://payment-approval" class="accModuleHeroIcon"/><Title text="Alternative Payee" class="accModuleHeroTitle" level="H1" textAlign="Center"/><Text text="IN DEVELOPMENT" class="accModuleDevBadge"/></VBox><VBox class="accModuleContent" alignItems="Center" width="100%"><Text\n                    text="This module manages alternative payee assignments, allowing payments to be directed to a different party than the original vendor on record."\n                    class="accModuleContentText"\n                    textAlign="Center"/></VBox></content></Page></mvc:View>\n',
+	"vendorapp/view/App.view.xml":'<mvc:View\n    controllerName="vendorapp.controller.App"\n    xmlns:mvc="sap.ui.core.mvc"\n    xmlns="sap.m"\n    displayBlock="true"><App id="appContainer" class="sapUiSizeCozy"/></mvc:View>\n',
+	"vendorapp/view/LowValuePayment.view.xml":'<mvc:View\n    controllerName="vendorapp.controller.LowValuePayment"\n    xmlns:mvc="sap.ui.core.mvc"\n    xmlns="sap.m"\n    xmlns:core="sap.ui.core"\n    displayBlock="true"><Page\n        id="lowValuePaymentPage"\n        title="Low Value Payment"\n        showNavButton="true"\n        navButtonPress="onNavBack"\n        class="accSecondaryPage"><content><VBox class="accModuleHeroSection" alignItems="Center" width="100%"><core:Icon src="sap-icon://currency" class="accModuleHeroIcon"/><Title text="Low Value Payment" class="accModuleHeroTitle" level="H1" textAlign="Center"/><Text text="IN DEVELOPMENT" class="accModuleDevBadge"/></VBox><VBox class="accModuleContent" alignItems="Center" width="100%"><Text\n                    text="This module handles the processing of low-value payments, providing a streamlined workflow for small transactions and petty cash disbursements within defined thresholds."\n                    class="accModuleContentText"\n                    textAlign="Center"/></VBox></content></Page></mvc:View>\n',
+	"vendorapp/view/Main.view.xml":'<mvc:View\n    controllerName="vendorapp.controller.Main"\n    xmlns:mvc="sap.ui.core.mvc"\n    xmlns="sap.m"\n    xmlns:core="sap.ui.core"\n    displayBlock="true"><Page id="mainPage" showHeader="false" enableScrolling="true" class="accLandingPage"><content><VBox class="accHero"><HBox alignItems="Center" justifyContent="SpaceBetween" class="accTopbar" width="100%"><HBox alignItems="Center"><core:Icon src="sap-icon://company-view" class="accTopbarIcon"/><Title text="Welcome" class="accTopbarTitle" level="H5"/></HBox><Text text="Accenture" class="accTopbarBrand"/></HBox><VBox alignItems="Center" class="accHeroBody" width="100%"><Title text="Requisition To Pay Portal" class="accHeroTitle" level="H1" textAlign="Center"/><Text text="Select a module to get started" class="accHeroSubtitle" textAlign="Center"/></VBox></VBox><VBox class="accTilesSection" alignItems="Center" width="100%"><Text text="AVAILABLE MODULES" class="accSectionLabel" textAlign="Center"/><FlexBox wrap="NoWrap" justifyContent="Center" class="accTilesContainer"><GenericTile\n                        id="tileMainVendor"\n                        class="accTile"\n                        header="Main Vendor"\n                        subheader="Primary vendor records"\n                        press="onNavigateMainVendor"><tileContent><TileContent><content><ImageContent src="sap-icon://supplier"/></content></TileContent></tileContent></GenericTile><GenericTile\n                        id="tileAlternativePayee"\n                        class="accTile"\n                        header="Alternative Payee"\n                        subheader="Payee assignments"\n                        press="onNavigateAlternativePayee"><tileContent><TileContent><content><ImageContent src="sap-icon://payment-approval"/></content></TileContent></tileContent></GenericTile><GenericTile\n                        id="tileOrderingAddress"\n                        class="accTile"\n                        header="Ordering Address"\n                        subheader="Address management"\n                        press="onNavigateOrderingAddress"><tileContent><TileContent><content><ImageContent src="sap-icon://addresses"/></content></TileContent></tileContent></GenericTile><GenericTile\n                        id="tileOneTimeVendor"\n                        class="accTile"\n                        header="One Time Vendor"\n                        subheader="Temporary vendor setup"\n                        press="onNavigateOneTimeVendor"><tileContent><TileContent><content><ImageContent src="sap-icon://customer-order-entry"/></content></TileContent></tileContent></GenericTile><GenericTile\n                        id="tileLowValuePayment"\n                        class="accTile"\n                        header="Low Value Payment"\n                        subheader="Low-value payment processing"\n                        press="onNavigateLowValuePayment"><tileContent><TileContent><content><ImageContent src="sap-icon://currency"/></content></TileContent></tileContent></GenericTile></FlexBox></VBox></content><footer><Toolbar class="accFooter"><ToolbarSpacer/><Text text="© 2025 Accenture. All rights reserved." class="accFooterText"/><ToolbarSpacer/></Toolbar></footer></Page></mvc:View>\n',
+	"vendorapp/view/MainVendor.view.xml":'<mvc:View\n    controllerName="vendorapp.controller.MainVendor"\n    xmlns:mvc="sap.ui.core.mvc"\n    xmlns="sap.m"\n    xmlns:core="sap.ui.core"\n    displayBlock="true"><Page\n        id="mainVendorPage"\n        title="Main Vendor"\n        showNavButton="true"\n        navButtonPress="onNavBack"\n        class="accSecondaryPage"><content><VBox class="accModuleHeroSection" alignItems="Center" width="100%"><core:Icon src="sap-icon://supplier" class="accModuleHeroIcon"/><Title text="Main Vendor" class="accModuleHeroTitle" level="H1" textAlign="Center"/><Text text="IN DEVELOPMENT" class="accModuleDevBadge"/></VBox><VBox class="accModuleContent" alignItems="Center" width="100%"><Text\n                    text="This module handles the management of primary vendor master data, including general information, company code data, and purchasing organization data."\n                    class="accModuleContentText"\n                    textAlign="Center"/></VBox></content></Page></mvc:View>\n',
+	"vendorapp/view/OneTimeVendor.view.xml":'<mvc:View\n    controllerName="vendorapp.controller.OneTimeVendor"\n    xmlns:mvc="sap.ui.core.mvc"\n    xmlns="sap.m"\n    xmlns:core="sap.ui.core"\n    xmlns:l="sap.ui.layout"\n    xmlns:grid="sap.ui.layout.cssgrid"\n    xmlns:upload="sap.m.upload"\n    displayBlock="true"><Page\n        id="oneTimeVendorPage"\n        title="One Time Vendor"\n        showNavButton="true"\n        navButtonPress="onNavBack"\n        class="accSecondaryPage accFormPage"><content><VBox class="accFormCard" width="100%"><HBox class="accFormHeaderBar" justifyContent="SpaceBetween" alignItems="Start" wrap="Wrap" width="100%"><VBox><Title text="Invoice Request for Manual Payment" level="H2" class="accFormTitle"/><Text text="Complete every field below to request a manual payment." class="accFormSubtitle"/></VBox><VBox class="accTxnBox" alignItems="End"><Text text="SAP TXN CODE — FB60 for Manual Invoice" class="accTxnRef"/><Text text="SAP TXN CODE — F-53 for Manual Invoice Settlement" class="accTxnRef"/></VBox></HBox><VBox class="accUploadBlock"><OverflowToolbar class="accSectionToolbar"><Title text="Supporting Document" level="H3" class="accFormSectionTitle accTableTitle"/><ObjectStatus text="Mandatory" state="Error" class="accMandatoryTag"/><ToolbarSpacer/><ObjectStatus\n                            text="File attached"\n                            state="Success"\n                            icon="sap-icon://accept"\n                            visible="{vm>/fileUploaded}"/></OverflowToolbar><Text text="Upload the supporting document to continue. Drag and drop a file in the area below or use the Upload button to browse your computer." class="accUploadHint"/><upload:UploadSet\n                        id="attachmentUploadSet"\n                        instantUpload="false"\n                        uploadEnabled="true"\n                        terminationEnabled="false"\n                        showIcons="true"\n                        fileTypes="pdf,png,jpg,jpeg,xlsx,xls,doc,docx,csv,msg,txt"\n                        noDataText="Drag and drop your file here"\n                        noDataDescription="or use the Upload button to browse your computer"\n                        afterItemAdded="onFileAdded"\n                        afterItemRemoved="onFileRemoved"\n                        class="accUploadSet"/></VBox><VBox visible="{vm>/fileUploaded}" width="100%"><OverflowToolbar class="accSectionToolbar"><Title text="Payment Details" level="H3" class="accFormSectionTitle accTableTitle"/><ToolbarSpacer/><Button text="Reset Fields" type="Transparent" icon="sap-icon://eraser" press="onResetFields" tooltip="Clear all fields in this section"/></OverflowToolbar><grid:CSSGrid\n                        gridTemplateColumns="repeat(auto-fit, minmax(330px, 1fr))"\n                        gridGap="0.25rem 1.5rem"\n                        class="accFormGrid"><VBox class="accField"><Label text="Company Code" required="true" class="accFieldLabel"/><Input value="{vm>/form/companyCode}" placeholder="e.g. 1900" maxLength="4"/></VBox><VBox class="accField"><Label text="Payment Date" required="true" class="accFieldLabel"/><DatePicker value="{vm>/form/paymentDate}" displayFormat="d-MMM-yyyy" valueFormat="yyyy-MM-dd" placeholder="Select a date"/></VBox><VBox class="accField"><HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center"><Label text="Document Date" required="true" class="accFieldLabel"/><Text text="SAP format (dd.MM.yyyy)" class="accFieldHint"/></HBox><DatePicker value="{vm>/form/documentDate}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" placeholder="Select a date"/></VBox><VBox class="accField"><Label text="Received Date" required="true" class="accFieldLabel"/><DatePicker value="{vm>/form/receivedDate}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" placeholder="Select a date"/></VBox><VBox class="accField"><HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center"><Label text="Baseline Date" required="true" class="accFieldLabel"/><Text text="SAP format (dd.MM.yyyy)" class="accFieldHint"/></HBox><DatePicker value="{vm>/form/baselineDate}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" placeholder="Select a date"/></VBox><VBox class="accField"><Label text="Reference" required="true" class="accFieldLabel"/><ComboBox selectedKey="{vm>/form/exceptionReason}" placeholder="Select a reason" width="100%"><core:Item key="Statutory/Tax" text="Statutory/Tax"/><core:Item key="Rush AP - No Vendor" text="Rush AP - No Vendor"/><core:Item key="Rush AP - One Time" text="Rush AP - One Time"/><core:Item key="Urgent Payment" text="Urgent Payment"/><core:Item key="Legal / Statutory" text="Legal / Statutory"/></ComboBox></VBox><VBox class="accField"><HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center"><Label text="Payment Method" required="true" class="accFieldLabel"/><Text text="Choose EFT (M) or Check (Q)" class="accFieldHint"/></HBox><Select selectedKey="{vm>/form/paymentMethod}" width="100%"><core:Item key="M" text="M — EFT"/><core:Item key="Q" text="Q — Check"/></Select></VBox><VBox class="accField"><HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center"><Label text="Payee Name" required="true" class="accFieldLabel"/><HBox alignItems="Center" class="accFieldMetaRight"><Text text="Max 35 characters" class="accFieldHint"/><Text text="{= (${vm>/form/payeeName} || \'\').length } / 35" class="accCharCounter"/></HBox></HBox><Input value="{vm>/form/payeeName}" maxLength="35" placeholder="e.g. UNIVERSIDAD NACIONAL AUTONOMA DE MEXICO"/></VBox><VBox class="accField"><HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center"><Label text="Payee City" required="true" class="accFieldLabel"/><Text text="{= (${vm>/form/payeeCity} || \'\').length } / 35" class="accCharCounter"/></HBox><Input value="{vm>/form/payeeCity}" maxLength="35" placeholder="e.g. México"/></VBox><VBox class="accField"><HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center"><Label text="SAP Vendor ID" class="accFieldLabel"/><Text text="Do not change" class="accFieldHint"/></HBox><Input value="{vm>/form/sapVendor}" placeholder="e.g. 4190000"/></VBox><VBox class="accField"><Label text="Payment Currency" required="true" class="accFieldLabel"/><Select selectedKey="{vm>/form/paymentCurrency}" width="100%"><core:Item key="MXN" text="MXN"/><core:Item key="COP" text="COP"/><core:Item key="USD" text="USD"/><core:Item key="EUR" text="EUR"/></Select></VBox><VBox class="accField"><Label text="Invoice Amount" required="true" class="accFieldLabel"/><Input value="{vm>/form/invoiceAmount}" type="Number" textAlign="End" placeholder="0.00"/></VBox><VBox class="accField"><Label text="Tax Amount" class="accFieldLabel"/><Input value="{vm>/form/taxAmount}" type="Number" textAlign="End" placeholder="0.00"/></VBox><VBox class="accField"><HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center"><Label text="Doc Type" class="accFieldLabel"/><Text text="Auto-derived" class="accFieldHint"/></HBox><Input value="{vm>/form/docType}" editable="false" placeholder="Auto"/></VBox><VBox class="accField"><Label text="Cash Clearing GL" required="true" class="accFieldLabel"/><Input value="{vm>/form/cashClearingGL}" placeholder="e.g. 540000"/></VBox><VBox class="accField"><HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center"><Label text="Value Date" required="true" class="accFieldLabel"/><Text text="SAP format (dd.MM.yyyy)" class="accFieldHint"/></HBox><DatePicker value="{vm>/form/valueDate}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" placeholder="Select a date"/></VBox><VBox class="accField accFieldWide"><HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center"><Label text="Invoice Information" required="true" class="accFieldLabel"/><HBox alignItems="Center" class="accFieldMetaRight"><Text text="Document Header Text" class="accFieldHint"/><Text text="{= (${vm>/form/invoiceInformation} || \'\').length } / 50" class="accCharCounter"/></HBox></HBox><Input value="{vm>/form/invoiceInformation}" maxLength="50" placeholder="e.g. Pago anticipo Diplomado ..."/></VBox><VBox class="accField accFieldWide"><HBox class="accFieldLabelRow" justifyContent="SpaceBetween" alignItems="Center"><Label text="Clearing Text" required="true" class="accFieldLabel"/><Text text="{= (${vm>/form/clearingText} || \'\').length } / 50" class="accCharCounter"/></HBox><Input value="{vm>/form/clearingText}" maxLength="50" placeholder="e.g. Pago anticipo Diplomado ..."/></VBox></grid:CSSGrid><HBox class="accPreparedBy" alignItems="Center" wrap="Wrap"><Label text="Prepared by" class="accFieldLabel accPreparedLabel"/><Input value="{vm>/form/preparedBy}" placeholder="Name of preparer" class="accPreparedInput"/></HBox></VBox></VBox></content><footer><OverflowToolbar class="accFormFooter" visible="{vm>/fileUploaded}"><ToolbarSpacer/><Button text="Submit Request" type="Emphasized" icon="sap-icon://accept" press="onSubmit"/></OverflowToolbar></footer></Page></mvc:View>\n',
+	"vendorapp/view/OneTimeVendorDetail.view.xml":'<mvc:View\n    controllerName="vendorapp.controller.OneTimeVendorDetail"\n    xmlns:mvc="sap.ui.core.mvc"\n    xmlns="sap.m"\n    xmlns:core="sap.ui.core"\n    xmlns:grid="sap.ui.layout.cssgrid"\n    displayBlock="true"><Page\n        id="oneTimeVendorDetailPage"\n        title="One Time Vendor"\n        showNavButton="true"\n        navButtonPress="onNavBack"\n        class="accSecondaryPage accFormPage"><content><VBox class="accFormCard" width="100%"><HBox class="accFormHeaderBar" justifyContent="SpaceBetween" alignItems="Center" wrap="Wrap" width="100%"><VBox><Title text="{detail>/data/payeeName}" level="H2" class="accFormTitle"/><Text text="{= ${detail>/editMode} ? \'Editing record — adjust the fields and save your changes.\' : \'Record details (read-only). Press Modify to edit.\' }" class="accFormSubtitle"/></VBox><HBox class="accDetailActions" alignItems="Center" wrap="Wrap"><Button\n                            text="Create FB60 Invoice"\n                            type="Emphasized"\n                            icon="sap-icon://create-form"\n                            press="onCreateFB60"\n                            visible="{= !${detail>/editMode} &amp;&amp; !${detail>/data/fb60Invoice} &amp;&amp; !${detail>/data/f53Clearing} }"/><Button\n                            text="Create F-53 Clearing"\n                            type="Emphasized"\n                            icon="sap-icon://create-form"\n                            press="onCreateF53"\n                            visible="{= !${detail>/editMode} &amp;&amp; !!${detail>/data/fb60Invoice} &amp;&amp; !${detail>/data/f53Clearing} }"/><Button\n                            text="Modify"\n                            type="Transparent"\n                            icon="sap-icon://edit"\n                            press="onModify"\n                            visible="{= !${detail>/editMode} &amp;&amp; !${detail>/data/fb60Invoice} &amp;&amp; !${detail>/data/f53Clearing} }"/><Button\n                            text="Save"\n                            type="Emphasized"\n                            icon="sap-icon://save"\n                            press="onSave"\n                            enabled="{detail>/dirty}"\n                            visible="{detail>/editMode}"/><Button\n                            text="Cancel"\n                            type="Transparent"\n                            icon="sap-icon://decline"\n                            press="onCancel"\n                            visible="{detail>/editMode}"/></HBox></HBox><Title text="Payment Details" level="H3" class="accFormSectionTitle accTableTitle"/><grid:CSSGrid\n                    gridTemplateColumns="repeat(auto-fit, minmax(330px, 1fr))"\n                    gridGap="0.25rem 1.5rem"\n                    class="accFormGrid"><VBox class="accField"><Label text="Company Code" class="accFieldLabel"/><Input value="{detail>/data/companyCode}" editable="{detail>/editMode}" maxLength="4" liveChange="onFieldChange"/></VBox><VBox class="accField"><Label text="Payment Date" class="accFieldLabel"/><DatePicker value="{detail>/data/paymentDate}" editable="{detail>/editMode}" displayFormat="d-MMM-yyyy" valueFormat="yyyy-MM-dd" change="onFieldChange"/></VBox><VBox class="accField"><Label text="Document Date" class="accFieldLabel"/><DatePicker value="{detail>/data/documentDate}" editable="{detail>/editMode}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" change="onFieldChange"/></VBox><VBox class="accField"><Label text="Received Date" class="accFieldLabel"/><DatePicker value="{detail>/data/receivedDate}" editable="{detail>/editMode}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" change="onFieldChange"/></VBox><VBox class="accField"><Label text="Baseline Date" class="accFieldLabel"/><DatePicker value="{detail>/data/baselineDate}" editable="{detail>/editMode}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" change="onFieldChange"/></VBox><VBox class="accField"><Label text="Reference" class="accFieldLabel"/><ComboBox selectedKey="{detail>/data/exceptionReason}" editable="{detail>/editMode}" width="100%" change="onFieldChange"><core:Item key="Statutory/Tax" text="Statutory/Tax"/><core:Item key="Rush AP - No Vendor" text="Rush AP - No Vendor"/><core:Item key="Rush AP - One Time" text="Rush AP - One Time"/><core:Item key="Urgent Payment" text="Urgent Payment"/><core:Item key="Legal / Statutory" text="Legal / Statutory"/></ComboBox></VBox><VBox class="accField"><Label text="Payment Method" class="accFieldLabel"/><Select selectedKey="{detail>/data/paymentMethod}" enabled="{detail>/editMode}" width="100%" change="onFieldChange"><core:Item key="M" text="M — EFT"/><core:Item key="Q" text="Q — Check"/></Select></VBox><VBox class="accField"><Label text="Payee Name" class="accFieldLabel"/><Input value="{detail>/data/payeeName}" editable="{detail>/editMode}" maxLength="35" liveChange="onFieldChange"/></VBox><VBox class="accField"><Label text="Payee City" class="accFieldLabel"/><Input value="{detail>/data/payeeCity}" editable="{detail>/editMode}" maxLength="35" liveChange="onFieldChange"/></VBox><VBox class="accField"><Label text="SAP Vendor ID" class="accFieldLabel"/><Input value="{detail>/data/sapVendor}" editable="{detail>/editMode}" liveChange="onFieldChange"/></VBox><VBox class="accField"><Label text="Payment Currency" class="accFieldLabel"/><Select selectedKey="{detail>/data/paymentCurrency}" enabled="{detail>/editMode}" width="100%" change="onFieldChange"><core:Item key="MXN" text="MXN"/><core:Item key="COP" text="COP"/><core:Item key="USD" text="USD"/><core:Item key="EUR" text="EUR"/></Select></VBox><VBox class="accField"><Label text="Invoice Amount" class="accFieldLabel"/><Input value="{detail>/data/invoiceAmount}" editable="{detail>/editMode}" textAlign="End" liveChange="onFieldChange"/></VBox><VBox class="accField"><Label text="Tax Amount" class="accFieldLabel"/><Input value="{detail>/data/taxAmount}" editable="{detail>/editMode}" textAlign="End" liveChange="onFieldChange"/></VBox><VBox class="accField"><Label text="Doc Type" class="accFieldLabel"/><Input value="{detail>/data/docType}" editable="{detail>/editMode}" liveChange="onFieldChange"/></VBox><VBox class="accField"><Label text="Cash Clearing GL" class="accFieldLabel"/><Input value="{detail>/data/cashClearingGL}" editable="{detail>/editMode}" liveChange="onFieldChange"/></VBox><VBox class="accField"><Label text="Value Date" class="accFieldLabel"/><DatePicker value="{detail>/data/valueDate}" editable="{detail>/editMode}" displayFormat="dd.MM.yyyy" valueFormat="yyyy-MM-dd" change="onFieldChange"/></VBox><VBox class="accField accFieldWide"><Label text="Invoice Information" class="accFieldLabel"/><Input value="{detail>/data/invoiceInformation}" editable="{detail>/editMode}" maxLength="50" liveChange="onFieldChange"/></VBox><VBox class="accField accFieldWide"><Label text="Clearing Text" class="accFieldLabel"/><Input value="{detail>/data/clearingText}" editable="{detail>/editMode}" maxLength="50" liveChange="onFieldChange"/></VBox><VBox class="accField"><Label text="Prepared by" class="accFieldLabel"/><Input value="{detail>/data/preparedBy}" editable="{detail>/editMode}" liveChange="onFieldChange"/></VBox></grid:CSSGrid><Title text="Document Status" level="H3" class="accFormSectionTitle accTableTitle"/><grid:CSSGrid\n                    gridTemplateColumns="repeat(auto-fit, minmax(330px, 1fr))"\n                    gridGap="0.25rem 1.5rem"\n                    class="accFormGrid"><VBox class="accField"><Label text="FB60 Invoice" class="accFieldLabel"/><ObjectStatus\n                            text="{= ${detail>/data/fb60Invoice} ? ${detail>/data/fb60Invoice} : \'Pending\' }"\n                            state="{= ${detail>/data/fb60Invoice} ? \'Success\' : \'Warning\' }"\n                            icon="{= ${detail>/data/fb60Invoice} ? \'sap-icon://accept\' : \'sap-icon://pending\' }"\n                            class="accStatusBig"/></VBox><VBox class="accField"><Label text="F-53 Clearing" class="accFieldLabel"/><ObjectStatus\n                            text="{= ${detail>/data/f53Clearing} ? ${detail>/data/f53Clearing} : \'Pending\' }"\n                            state="{= ${detail>/data/f53Clearing} ? \'Success\' : \'Warning\' }"\n                            icon="{= ${detail>/data/f53Clearing} ? \'sap-icon://accept\' : \'sap-icon://pending\' }"\n                            class="accStatusBig"/></VBox></grid:CSSGrid><OverflowToolbar class="accSectionToolbar"><Title text="Line Items" level="H3" class="accFormSectionTitle accTableTitle"/><ToolbarSpacer/><Button text="Add Line Item" type="Transparent" icon="sap-icon://add" press="onAddItem" visible="{detail>/editMode}"/></OverflowToolbar><ScrollContainer horizontal="true" vertical="true" width="100%" class="accTableScroll" focusable="false"><Table\n                        id="detailItemsTable"\n                        items="{detail>/data/items}"\n                        width="96rem"\n                        class="accLineItemsTable"\n                        alternateRowColors="true"\n                        growing="false"><columns><Column width="9rem"><Text text="Posting Key"/></Column><Column width="8rem" hAlign="End"><Text text="GL Account"/></Column><Column width="9rem" hAlign="End"><Text text="Net Amount (Debit)"/><footer><Text text="{detail>/totalDebit}" class="accTotalValue"/></footer></Column><Column width="9rem" hAlign="End"><Text text="Net Amount (Credit)"/><footer><Text text="{detail>/totalCredit}" class="accTotalValue"/></footer></Column><Column width="7rem"><Text text="Tax Code"/></Column><Column width="7rem"><Text text="Cost Ctr"/></Column><Column width="8rem"><Text text="WBS Element"/></Column><Column width="7rem"><Text text="Profit Ctr"/></Column><Column width="7rem"><Text text="Company Code"/></Column><Column width="16rem"><Text text="Text"/></Column><Column width="6rem" hAlign="Center"><Text text="Actions"/></Column></columns><items><ColumnListItem vAlign="Middle"><cells><Select selectedKey="{detail>postingKey}" enabled="{detail>/editMode}" width="100%" change="onFieldChange"><core:Item key="40 - Debit" text="40 - Debit"/><core:Item key="50 - Credit" text="50 - Credit"/></Select><Input value="{detail>glAccount}" editable="{detail>/editMode}" textAlign="End" liveChange="onFieldChange"/><Input value="{detail>debit}" editable="{detail>/editMode}" type="Number" textAlign="End" change="onItemAmountChange"/><Input value="{detail>credit}" editable="{detail>/editMode}" type="Number" textAlign="End" change="onItemAmountChange"/><Input value="{detail>taxCode}" editable="{detail>/editMode}" liveChange="onFieldChange"/><Input value="{detail>costCtr}" editable="{detail>/editMode}" liveChange="onFieldChange"/><Input value="{detail>wbsElement}" editable="{detail>/editMode}" liveChange="onFieldChange"/><Input value="{detail>profitCtr}" editable="{detail>/editMode}" liveChange="onFieldChange"/><Input value="{detail>companyCode}" editable="{detail>/editMode}" liveChange="onFieldChange"/><Input value="{detail>text}" editable="{detail>/editMode}" liveChange="onFieldChange"/><HBox justifyContent="Center"><Button icon="sap-icon://copy" type="Transparent" tooltip="Copy line" press="onCopyItem" visible="{detail>/editMode}"/><Button icon="sap-icon://delete" type="Transparent" tooltip="Remove line" press="onDeleteItem" visible="{detail>/editMode}"/></HBox></cells></ColumnListItem></items></Table></ScrollContainer></VBox></content></Page></mvc:View>\n',
+	"vendorapp/view/OneTimeVendorList.view.xml":'<mvc:View\n    controllerName="vendorapp.controller.OneTimeVendorList"\n    xmlns:mvc="sap.ui.core.mvc"\n    xmlns="sap.m"\n    xmlns:core="sap.ui.core"\n    xmlns:grid="sap.ui.layout.cssgrid"\n    displayBlock="true"><Page\n        id="oneTimeVendorListPage"\n        title="One Time Vendor"\n        showNavButton="true"\n        navButtonPress="onNavBack"\n        class="accSecondaryPage accFormPage"><content><VBox class="accFormCard" width="100%"><HBox class="accFormHeaderBar" justifyContent="SpaceBetween" alignItems="Center" wrap="Wrap" width="100%"><VBox><Title text="One Time Vendor Records" level="H2" class="accFormTitle"/><Text text="Manual payment requests captured for occasional vendors." class="accFormSubtitle"/></VBox><Button\n                        text="Create OTV"\n                        type="Emphasized"\n                        icon="sap-icon://add"\n                        press="onCreateOTV"/></HBox><OverflowToolbar class="accSectionToolbar"><Title text="Filters" level="H3" class="accFormSectionTitle accTableTitle"/><ToolbarSpacer/><Button text="Clear Filters" type="Transparent" icon="sap-icon://clear-filter" press="onClearFilters"/><Button text="Apply Filters" type="Emphasized" icon="sap-icon://filter" press="onApplyFilters"/></OverflowToolbar><grid:CSSGrid\n                    gridTemplateColumns="repeat(auto-fit, minmax(220px, 1fr))"\n                    gridGap="0.25rem 1.5rem"\n                    class="accFormGrid"><VBox class="accField"><Label text="Company Code" class="accFieldLabel"/><Input value="{flt>/companyCode}" placeholder="All" submit="onApplyFilters"/></VBox><VBox class="accField"><Label text="SAP Vendor ID" class="accFieldLabel"/><Input value="{flt>/sapVendor}" placeholder="All" submit="onApplyFilters"/></VBox><VBox class="accField"><Label text="Payee Name" class="accFieldLabel"/><Input value="{flt>/payeeName}" placeholder="All" submit="onApplyFilters"/></VBox><VBox class="accField"><Label text="Payment Date" class="accFieldLabel"/><DatePicker value="{flt>/paymentDate}" displayFormat="d-MMM-yyyy" valueFormat="yyyy-MM-dd" placeholder="All"/></VBox></grid:CSSGrid><ScrollContainer\n                    horizontal="true"\n                    vertical="true"\n                    width="100%"\n                    class="accTableScroll accListScroll"\n                    focusable="false"><Table\n                        id="otvRecordsTable"\n                        items="{otv>/records}"\n                        width="78rem"\n                        class="accLineItemsTable"\n                        alternateRowColors="true"\n                        growing="false"\n                        noDataText="No records yet. Use “Create OTV” to add the first one."><columns><Column width="9rem"><Text text="Company Code"/></Column><Column width="9rem"><Text text="SAP Vendor ID"/></Column><Column width="20rem"><Text text="Payee Name"/></Column><Column width="8rem"><Text text="Currency"/></Column><Column width="11rem" hAlign="End"><Text text="Invoice Amount"/></Column><Column width="9rem"><Text text="Payment Date"/></Column><Column width="10rem"><Text text="FB60 Invoice"/></Column><Column width="10rem"><Text text="F-53 Clearing"/></Column></columns><items><ColumnListItem vAlign="Middle" type="Navigation" press="onRecordPress"><cells><Text text="{otv>companyCode}"/><Text text="{otv>sapVendor}"/><Text text="{otv>payeeName}"/><Text text="{otv>paymentCurrency}"/><Text text="{otv>invoiceAmount}"/><Text text="{otv>paymentDate}"/><ObjectStatus\n                                        text="{= ${otv>fb60Invoice} ? ${otv>fb60Invoice} : \'Pending\' }"\n                                        state="{= ${otv>fb60Invoice} ? \'Success\' : \'Warning\' }"/><ObjectStatus\n                                        text="{= ${otv>f53Clearing} ? ${otv>f53Clearing} : \'Pending\' }"\n                                        state="{= ${otv>f53Clearing} ? \'Success\' : \'Warning\' }"/></cells></ColumnListItem></items></Table></ScrollContainer></VBox></content></Page></mvc:View>\n',
+	"vendorapp/view/OrderingAddress.view.xml":'<mvc:View\n    controllerName="vendorapp.controller.OrderingAddress"\n    xmlns:mvc="sap.ui.core.mvc"\n    xmlns="sap.m"\n    xmlns:core="sap.ui.core"\n    displayBlock="true"><Page\n        id="orderingAddressPage"\n        title="Ordering Address"\n        showNavButton="true"\n        navButtonPress="onNavBack"\n        class="accSecondaryPage"><content><VBox class="accModuleHeroSection" alignItems="Center" width="100%"><core:Icon src="sap-icon://addresses" class="accModuleHeroIcon"/><Title text="Ordering Address" class="accModuleHeroTitle" level="H1" textAlign="Center"/><Text text="IN DEVELOPMENT" class="accModuleDevBadge"/></VBox><VBox class="accModuleContent" alignItems="Center" width="100%"><Text\n                    text="This module manages vendor ordering addresses, enabling the configuration of specific delivery and correspondence addresses for purchase order processing."\n                    class="accModuleContentText"\n                    textAlign="Center"/></VBox></content></Page></mvc:View>\n'
+});
+//# sourceMappingURL=Component-preload.js.map
+
+    </script>
+</head>
+<body class="sapUiBody" style="height:100%; margin:0;">
+    <div id="content" style="height:100%"></div>
+    <script>
+        sap.ui.getCore().attachInit(function () {
+            sap.ui.require(["sap/ui/core/ComponentContainer"], function (ComponentContainer) {
+                new ComponentContainer({
+                    name: "vendorapp",
+                    manifest: true,
+                    async: true,
+                    height: "100%",
+                    settings: { id: "vendorapp" }
+                }).placeAt("content");
+            });
+        });
+    </script>
+</body>
+</html>
